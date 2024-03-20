@@ -20,84 +20,74 @@ function fmt_help {
 
     if [[ "${__bash_doc_output_redirected__}" == "false" ]] &&
         [[ "${__bash_doc_has_tput__}" == "true" ]]; then
+
         reset_fmt="$(tput sgr0)"
+
         if [[ "$type" == "arg" ]]; then
-            fmt="$(tput bold)"
-        elif [[ "$type" == "argdesc" ]]; then
+            fmt="$(tput bold && tput setaf 1)"
+        elif [[ "$type" == "arg_desc" ]]; then
+            fmt="$(tput setaf 27)"
+        elif [[ "$type" == "arg_default" ]]; then
             fmt="$(tput setaf 2)"
-        elif [[ "$type" == "argdefault" ]]; then
-            fmt="$(tput setaf 5)"
-        elif [[ "$type" == "desc" ]]; then
-            fmt="$(tput bold)"
-        elif [[ "$type" == "fun" ]]; then
+        elif [[ "$type" == "func_desc" ]]; then
+            fmt="$(tput bold && tput setaf 5)"
+        elif [[ "$type" == "func_name" ]]; then
             fmt="$(tput bold)"
         elif [[ "$type" == "header" ]]; then
             fmt="$(tput bold && tput smul)"
         elif [[ "$type" == "type" ]]; then
-            fmt="$(tput setaf 1)"
+            fmt="$(tput setaf 6)"
         elif [[ "$type" == "val" ]]; then
             fmt="$(tput bold)"
         fi
     fi
-    printf -- "$fmt${@: -1}$reset_fmt"
-}
 
+    printf "%b" "$fmt$(
+        echo "${@: -1}" |
+            sed \
+                -e 's/\\n/\n'"$(indent)"'/g'
+    )$reset_fmt"
+}
+# $(indent)
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
 # =========================== > format_argument < ============================ #
 function format_argument {
     # Indent & dashes
-    printf -- "\t\055\055"
+    printf -- "\055\055"
     # Argument
     fmt_help --type="arg" "$(printf "%-${1}b" "${2}")"
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #
-# ========================= > format_argdefaultuse < ========================= #
-function format_argdefaultuse {
-    printf "\"%b\"" "$(fmt_help --type="argdefault" "${1}")"
+# =========================== > format_arg_usage < =========================== #
+
+function format_arg_usage {
+    printf "\"%b\"" "$(fmt_help --type="arg_default" "${1}")"
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
-function format_argtype {
+function format_arg_type {
     fmt_help --type="type" "$(printf "%-${1}b" "<${2}>")"
 }
 
-function format_argdesc {
-    indent="$(rep " " $1)"
-    desc="$(
-        echo "${2}" |
-            sed \
-                -e 's/\\n/\n\t'"$indent"'/g'
-    )"
-    # printf -- "${indent}"
-    printf "%b" "$(fmt_help --type="argdesc" "${desc}")"
+function format_arg_desc {
+    printf "%b" "$(fmt_help --type="arg_desc" "${1}")"
 }
 
-function format_argdefault {
-    indent="$(rep " " $1)"
-    printf "\t%b" "${indent}"
-    printf -- "Default: "
-    printf "%b" "$(fmt_help --type="argdefault" "${2}")"
+function format_arg_default {
+    printf "%b" "$(fmt_help --type="arg_default" "${1}")"
 }
 # ============================== > format_fun < ============================== #
 
-function format_fun {
-    indent="$(rep " " $1)"
-    printf -- "${indent}"
-    printf "%b" "$(fmt_help --type="fun" "${2}")"
+function format_func_name {
+    printf "%b" "$(fmt_help --type="func_name" "${1}")"
 }
 
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
-# ============================ > format_fundesc < ============================ #
+# =========================== > format_func_desc < =========================== #
 
 function format_func_desc {
-    indent="\t"
-    desc="$(
-        echo "$indent$(printf "%s\\\\n" "${@:2}")" |
-            sed \
-                -e 's/\\n/\n'"$indent"'/g'
-    )"
-    printf "%b" "$(fmt_help --type="argdesc" "${desc}")"
+    printf "%b" "$(fmt_help --type="func_desc" "${1}")"
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #

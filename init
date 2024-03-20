@@ -1,13 +1,5 @@
 #!/bin/bash
 
-# =============================== > Settings < =============================== #
-dependencies=("jq" "curl")
-
-git_registry_port=5005
-git_api_version=4
-token_duration="1 day"
-# ────────────────────────────────── <end> ─────────────────────────────────── #
-
 # ===================== > Source and export functions < ====================== #
 export source_path="$(dirname "${BASH_SOURCE[0]}")/Functions"
 
@@ -23,7 +15,7 @@ function testfunsdaadsdasd {
     init_desc \
         "A" \
         "B"
-    init_arg num b "cdefghi" "xbbsdsd"
+    init_arg "nuassam" "basdsadsaddas" "cdef\nghi" "xbbsdsd"
     init_arg x exxxx f "y-----"
     show_help
     #
