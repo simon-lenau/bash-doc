@@ -92,6 +92,16 @@ export __bash_doc_output_redirected__=true
 source "examples/example_int_only.sh"
 ```
 
+```{bash example_str_only_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
+cat "examples/example_str_only.sh"
+```
+
+```{bash example_str_only,echo=FALSE,comment=NA}
+source "examples/example_function.sh"
+export __bash_doc_output_redirected__=true
+source "examples/example_str_only.sh"
+```
+
 but setting an argument overwrites the defaults:
 
 ```{bash example_int_and_str_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}

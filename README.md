@@ -1,9 +1,3 @@
----
-noteId: "96d328a0e76811ee8f6fdf45f646a5cd"
-tags: []
-
----
-
 Simple functions for creating and formating documentation of bash
 scripts / functions
 
@@ -109,6 +103,14 @@ example_function --str_arg "Example 1"
 
     int_arg: default_int
     str_arg: Example 1
+
+``` bash
+
+example_function --int_arg "2"
+```
+
+    int_arg: 2
+    str_arg: default_str
 
 but setting an argument overwrites the defaults:
 
