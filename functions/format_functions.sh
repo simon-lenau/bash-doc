@@ -113,7 +113,7 @@ function format_argument {
 # =========================== > format_arg_usage < =========================== #
 
 function format_arg_usage {
-    printf "%b" "$(fmt_help --type="arg_default" "${1}")"
+    printf "\"%b\"" "$(fmt_help --type="arg_default" "${1}")"
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 

@@ -107,8 +107,8 @@ example_function
 
    Usage:      
       example_function \
-         --int_arg  default_int \
-         --str_arg  default_str
+         --int_arg  "default_int" \
+         --str_arg  "default_str"
 ```
 
 ### Setting arguments
