@@ -42,8 +42,7 @@ function show_help {
             # Newline & indent
             newline 1 && indent
             # Argument default
-            printf -- "Default: "
-            format_arg_default "${argdefault[$i]}"
+            format_arg_default "Default: ${argdefault[$i]}"
         done
     fi
     newline 2 && indent 0
@@ -58,7 +57,12 @@ function show_help {
         newline 1 && indent ${__bash_doc_usage_indent__}
         format_func_name "${func_name}"
         for ((i = 0; i < ${#args[@]}; i++)); do
-            printf " \\"
+            if [[ "${TERM}" == "rmd" ]]; then
+
+                printf " \\\\\\"
+            else
+                printf " \\"
+            fi
             # Newline & indent
             newline 1 && indent $((__bash_doc_usage_indent__ + 1))
             # Argument

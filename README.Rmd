@@ -74,7 +74,7 @@ cat "examples/example_help.sh"
 
 ```{bash example_help,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export __bash_doc_output_redirected__=true
+export TERM="dumb"
 source "examples/example_help.sh"
 ```
 
@@ -88,7 +88,6 @@ cat "examples/example_int_only.sh"
 
 ```{bash example_int_only,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export __bash_doc_output_redirected__=true
 source "examples/example_int_only.sh"
 ```
 
@@ -98,7 +97,6 @@ cat "examples/example_str_only.sh"
 
 ```{bash example_str_only,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export __bash_doc_output_redirected__=true
 source "examples/example_str_only.sh"
 ```
 
@@ -110,7 +108,6 @@ cat "examples/example_int_and_str.sh"
 
 ```{bash example_int_and_str,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export __bash_doc_output_redirected__=true
 source "examples/example_int_and_str.sh"
 ```
 

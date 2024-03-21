@@ -1,5 +1,13 @@
-Simple functions for creating and formating documentation of bash
-scripts / functions
+---
+title: bash-doc
+output:
+  md_document:
+    variant: markdown_github
+---
+
+
+
+Simple functions for creating and formating documentation of bash scripts / functions
 
 ### Create documentation
 
@@ -7,7 +15,8 @@ scripts / functions
 
 Initialize the documentation block
 
-**Arguments:** none
+**Arguments:**
+none
 
 #### `init_desc`
 
@@ -15,40 +24,45 @@ Set the description of the function / script
 
 **Arguments:**
 
--   `$1,...,$n`: Lines of the description
+- `$1,...,$n`: Lines of the description
 
 #### `init_arg`
 
-Initialize named arguments to be set via `--arg=val` or `--arg val`
-(using one or two dashes)
+Initialize named arguments to be set via `--arg=val` or `--arg val` (using one or two dashes)
 
-**Arguments:** - `$1`: Argument type  
-- `$2`: Argument name - `$3`: Argument description - `$4`: Default value
+**Arguments:**
+- `$1`: Argument type  
+- `$2`: Argument name
+- `$3`: Argument description
+- `$4`: Default value
 
 ### Set arguments
 
 #### `parse_arguments`
+Set arguments passed as `--arg=val` or `--arg val` (using one or two dashes).
+Should be used as `eval "$(parse_arguments "$@")"`
 
-Set arguments passed as `--arg=val` or `--arg val` (using one or two
-dashes). Should be used as `eval "$(parse_arguments "$@")"`
+**Arguments:**
+- `$1,...,$n`: Arguments to be set.
 
-**Arguments:** - `$1,...,$n`: Arguments to be set.
-
+    
 ### Print help
 
 #### `need_help`
 
-Show the help if argument `-h` or `-help` (using one or two dashes) is
-present. If output is console and tput is available, tput is used for
-colouring.
+Show the help if argument `-h` or `-help` (using one or two dashes) is present. If output is console and tput is available, tput is used for colouring.
 
-**Arguments:** none
+**Arguments:**
+none
 
 ## Examples
 
 The following function is a basic example of how to use `bash-doc`:
 
-``` bash
+
+
+
+```{.bash}
 #!/bin/bash
 source $(dirname "${BASH_SOURCE[0]}")/../init
 
@@ -72,52 +86,69 @@ function example_function {
 
 ### Printing help
 
-``` bash
+
+```{.bash}
 example_function --help
 ```
 
-    example_function   
-       This is an
-       Example function
 
-       Arguments:      
-          --int_arg  <int> 
-             This is some int argument
-             Default: default_int
-          --str_arg  <str> 
-             This is some string argument
-             Default: default_str
+```
+example_function   
+   This is an
+   Example function
 
-       Usage:      
-          example_function \
-             --int_arg  "default_int" \
-             --str_arg  "default_str"
+   Arguments:      
+      --int_arg  <int> 
+         This is some int argument
+         Default: default_int
+      --str_arg  <str> 
+         This is some string argument
+         Default: default_str
+
+   Usage:      
+      example_function \
+         --int_arg  default_int \
+         --str_arg  default_str
+```
 
 ### Setting arguments
 
 Defaults are used if an argument is not specified:
 
-``` bash
+
+```{.bash}
 example_function --str_arg "Example 1"
 ```
 
-    int_arg: default_int
-    str_arg: Example 1
 
-``` bash
+```
+int_arg: default_int
+str_arg: Example 1
+```
 
+
+```{.bash}
 example_function --int_arg "2"
 ```
 
-    int_arg: 2
-    str_arg: default_str
+
+```
+int_arg: 2
+str_arg: default_str
+```
 
 but setting an argument overwrites the defaults:
 
-``` bash
 
+```{.bash}
 example_function --int_arg "3" --str_arg "Example 3"
 ```
 
-    int_arg: 3
-    str_arg: Example 3
+
+```
+int_arg: 3
+str_arg: Example 3
+```
+
+
+

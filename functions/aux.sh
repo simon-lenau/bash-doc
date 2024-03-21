@@ -65,9 +65,17 @@ function indent {
             fi
         fi
     fi
-    printf "%s" "$(rep " " $((__bash_doc_indent__ * 3)))"
+    if [[ ! "${TERM}" == "rmd" ]]; then
+        printf "%s" "$(rep " " $((__bash_doc_indent__ * 3)))"
+    else
+        :
+    fi
 }
 
 function newline {
-    printf "%b" "$(rep "\\\n" $1)"
+    if [[ ! "${TERM}" == "rmd" ]]; then
+        printf "%b" "$(rep "\\\n" $1)"
+    else
+        printf "%s" "$(rep " <br>" $1)"
+    fi
 }
