@@ -1,7 +1,8 @@
 ---
 title: bash-doc
 output:
-  html_document
+  md_document:
+    variant: markdown_github
 ---
 
 
@@ -73,7 +74,7 @@ cat "examples/example_help.sh"
 
 ```{bash example_help,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export TERM="rmd"
+export TERM="dumb"
 source "examples/example_help.sh"
 ```
 
