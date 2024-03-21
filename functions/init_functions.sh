@@ -1,8 +1,8 @@
 function init_arg {
-    args=(${args[@]} $2)
-    argtype=(${argtype[@]} $1)
-    argdesc=(${argdesc[@]} $3)
-    argdefault=(${argdefault[@]} $4)
+    args+=("$2")
+    argtype+=("$1")
+    argdesc+=("$3")
+    argdefault+=("$4")
 }
 
 function init_desc {

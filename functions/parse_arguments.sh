@@ -43,12 +43,15 @@ function make_declaration {
 # └└────────────────────────────────────────────────────────────────────────┘┘ #
 
 function parse_arguments {
-    declare -a valid_args="${!1}"
-    shift
     key=""
     value=""
     i=0
     j=0
+    if [ "${#args[@]}" -gt "0" ]; then
+        for ((i = 0; i < ${#args[@]}; i++)); do
+            make_declaration "${args[$i]}" "${argdefault[$i]}"
+        done
+    fi
     while [[ $# -gt 0 ]]; do
         case "$1" in
         --*=* | -*=*) # for arguments like --a=5
@@ -73,12 +76,12 @@ function parse_arguments {
             shift
             ;;
         *)
-            value=("$value $1")
+            value+=("$1")
             ;;
         esac
 
         if [ ! -z "${key}" ]; then
-            if [[ " ${valid_args[@]} " =~ " ${key} " ]]; then
+            if [[ " ${args[@]} " =~ " ${key} " ]]; then
                 keys+=("$key")
                 vals+=("$value")
             else

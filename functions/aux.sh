@@ -1,3 +1,27 @@
+# ================================= > err < ================================== #
+
+function err {
+    fmt=""
+    reset_fmt=""
+    if [ -t 2 ]; then
+        command -v "tput" >/dev/null 2>&1 &&
+            {
+                fmt="$(tput setaf 1 && tput bold)"
+                reset_fmt="$(tput sgr0)"
+            }
+    fi
+
+    printf "%b" \
+        "$(printf "\n${fmt}[$(date +'%Y/%m/%d -- %H:%M:%S')] %s" \
+            "Error in \`$(caller | awk '{print $2":"$1}')\`")" \
+        "$(printf "\n${fmt}[$(date +'%Y/%m/%d -- %H:%M:%S')]\t%b" "$@")" \
+        "${reset_fmt}\n" \
+        >&2
+    echo ""
+}
+
+# ────────────────────────────────── <end> ─────────────────────────────────── #
+
 # ================================= > max < ================================== #
 
 function max {

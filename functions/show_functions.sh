@@ -1,5 +1,5 @@
 function show_help {
-    local func_name="${FUNCNAME[@]:1:1}"
+    local func_name="${FUNCNAME[@]:2:1}"
     local len_args=8
     local len_types=0
     for ((i = 0; i < ${#args[@]}; i++)); do

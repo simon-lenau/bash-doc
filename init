@@ -1,25 +1,16 @@
 #!/bin/bash
 
 # ===================== > Source and export functions < ====================== #
+
 export source_path="$(dirname "${BASH_SOURCE[0]}")/Functions"
 
 source $source_path/init_functions.sh
 source $source_path/format_functions.sh
 
 source $source_path/aux.sh
+source $source_path/need_help.sh
 source $source_path/parse_arguments.sh
 source $source_path/show_functions.sh
+# ────────────────────────────────── <end> ─────────────────────────────────── #
 
-function testfunsdaadsdasd {
-    init_doc
-    init_desc \
-        "A" \
-        "B"
-    init_arg "nuassam" "basdsadsaddas" "cdef\nghi" "xbbsdsd"
-    init_arg x exxxx f "y-----"
-    show_help
-    #
-
-}
-
-testfunsdaadsdasd -b 5
+eval "$(declare -F | sed -e 's/-f /-fx /')"

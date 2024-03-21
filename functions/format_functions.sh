@@ -9,17 +9,30 @@ __bash_doc_output_redirected__="false"
 # =============================== > fmt_help < =============================== #
 
 function fmt_help {
-    valid_args=("type")
-    eval $(parse_arguments valid_args[@] "$@")
-    if [ -z "${type}" ]; then
-        err "Missing argument: type"
-    fi
 
     fmt=""
     reset_fmt=""
 
     if [[ "${__bash_doc_output_redirected__}" == "false" ]] &&
         [[ "${__bash_doc_has_tput__}" == "true" ]]; then
+
+        while [[ $# -gt 0 ]]; do
+            case "$1" in
+            --type=* | -type=*) # for arguments like --a=5
+                type="${1#*=}"
+                ;;
+            --type | -type) # for arguments like --a 5
+                ((i++))
+                type="${2}"
+                shift
+                ;;
+            *)
+                value=("$value $1")
+                break
+                ;;
+            esac
+            shift
+        done
 
         reset_fmt="$(tput sgr0)"
 
