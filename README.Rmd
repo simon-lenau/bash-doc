@@ -1,8 +1,7 @@
 ---
 title: bash-doc
 output:
-  md_document:
-    variant: markdown_github
+  html_document
 ---
 
 
