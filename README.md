@@ -93,22 +93,7 @@ example_function --help
 
 
 ```
-example_function   
-   This is an
-   Example function
-
-   Arguments:      
-      --int_arg  <int> 
-         This is some int argument
-         Default: default_int
-      --str_arg  <str> 
-         This is some string argument
-         Default: default_str
-
-   Usage:      
-      example_function \
-         --int_arg  default_int \
-         --str_arg  default_str
+<span style="color:black;font-weight: bold;display:inline-block;margin-left:0em;">example_function</span> <br><span style="color:magenta;font-weight: bold;display:inline-block;margin-left:1em;">This is an</span> <br><span style="color:magenta;font-weight: bold;display:inline-block;margin-left:1em;">Example function</span> <br> <br><span style="color:black;font-weight: bold;text-decoration: underline;display:inline-block;margin-left:1em;">Arguments:</span> <br><span style="color:red;display:inline-block;margin-left:2em;">--int_arg  </span><span style="color:turquoise;display:inline-block;margin-left:2em;">\<int\></span> <br><span style="color:blue;display:inline-block;margin-left:3em;">This is some int argument</span> <br><span style="color:green;display:inline-block;margin-left:3em;">Default: default_int</span> <br><span style="color:red;display:inline-block;margin-left:2em;">--str_arg  </span><span style="color:turquoise;display:inline-block;margin-left:2em;">\<str\></span> <br><span style="color:blue;display:inline-block;margin-left:3em;">This is some string argument</span> <br><span style="color:green;display:inline-block;margin-left:3em;">Default: default_str</span> <br> <br><span style="color:black;font-weight: bold;text-decoration: underline;display:inline-block;margin-left:1em;">Usage:</span> <br><span style="color:black;font-weight: bold;display:inline-block;margin-left:2em;">example_function</span> \\ <br><span style="color:red;display:inline-block;margin-left:3em;">--int_arg  </span><span style="color:green;display:inline-block;margin-left:3em;">default_int</span> \\ <br><span style="color:red;display:inline-block;margin-left:3em;">--str_arg  </span><span style="color:green;display:inline-block;margin-left:3em;">default_str</span> <br>
 ```
 
 ### Setting arguments

@@ -74,7 +74,7 @@ cat "examples/example_help.sh"
 
 ```{bash example_help,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export TERM="dumb"
+export TERM="rmd"
 source "examples/example_help.sh"
 ```
 
