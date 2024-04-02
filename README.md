@@ -7,6 +7,8 @@ output:
 
 
 
+
+
 Simple functions for creating and formating documentation of bash scripts / functions
 
 ### Create documentation
@@ -61,9 +63,7 @@ The following function is a basic example of how to use `bash-doc`:
 
 
 
-
-```{.bash}
-#!/bin/bash
+<pre class="r-output"><code>#!/bin/bash
 source $(dirname "${BASH_SOURCE[0]}")/../init
 
 function example_function {
@@ -74,7 +74,7 @@ function example_function {
     init_arg "int" "int_arg" "This is some int argument" "default_int"
     init_arg "str" "str_arg" "This is some string argument" "default_str"
 
-    need_help $@ && return $?
+    need_help $@ &amp;&amp; return $?
 
     eval "$(parse_arguments "$@")"
 
@@ -82,73 +82,57 @@ function example_function {
     echo "str_arg: ${str_arg[@]}"
 
 }
-```
+</code></pre>
 
 ### Printing help
 
+<pre class="r-output"><code>example_function --help
+</code></pre>
 
-```{.bash}
-example_function --help
-```
+<pre class="r-output"><code><span style='font-weight: bold;'>example_functionB</span>   
+   <span style='color: #BB00BB; font-weight: bold;'>This is anB</span>
+   <span style='color: #BB00BB; font-weight: bold;'>Example functionB</span>
 
+   <span style='font-weight: bold; text-decoration: underline;'>Arguments:B</span>      
+      <span style='color: #BB0000; font-weight: bold;'>--int_arg  B</span><span style='color: #00BBBB;'>&lt;int&gt; B</span>
+         <span style='color: #005FFF;'>This is some int argumentB</span>
+         <span style='color: #00BB00;'>Default: default_intB</span>
+      <span style='color: #BB0000; font-weight: bold;'>--str_arg  B</span><span style='color: #00BBBB;'>&lt;str&gt; B</span>
+         <span style='color: #005FFF;'>This is some string argumentB</span>
+         <span style='color: #00BB00;'>Default: default_strB</span>
 
-```
-example_function   
-   This is an
-   Example function
-
-   Arguments:      
-      --int_arg  <int> 
-         This is some int argument
-         Default: default_int
-      --str_arg  <str> 
-         This is some string argument
-         Default: default_str
-
-   Usage:      
-      example_function \
-         --int_arg  "default_int" \
-         --str_arg  "default_str"
-```
+   <span style='font-weight: bold; text-decoration: underline;'>Usage:B</span>      
+      <span style='font-weight: bold;'>example_functionB</span> \
+         <span style='color: #BB0000; font-weight: bold;'>--int_arg  B</span>"<span style='color: #00BB00;'>default_intB</span>" \
+         <span style='color: #BB0000; font-weight: bold;'>--str_arg  B</span>"<span style='color: #00BB00;'>default_strB</span>"
+</code></pre>
 
 ### Setting arguments
 
 Defaults are used if an argument is not specified:
 
+<pre class="r-output"><code>example_function --str_arg "Example 1"
+</code></pre>
 
-```{.bash}
-example_function --str_arg "Example 1"
-```
-
-
-```
-int_arg: default_int
+<pre class="r-output"><code>int_arg: default_int
 str_arg: Example 1
-```
+</code></pre>
 
+<pre class="r-output"><code>example_function --int_arg "2"
+</code></pre>
 
-```{.bash}
-example_function --int_arg "2"
-```
-
-
-```
-int_arg: 2
+<pre class="r-output"><code>int_arg: 2
 str_arg: default_str
-```
+</code></pre>
 
 but setting an argument overwrites the defaults:
 
+<pre class="r-output"><code>example_function --int_arg "3" --str_arg "Example 3"
+</code></pre>
 
-```{.bash}
-example_function --int_arg "3" --str_arg "Example 3"
-```
-
-
-```
-int_arg: 3
+<pre class="r-output"><code>int_arg: 3
 str_arg: Example 3
-```
+</code></pre>
 
 
 

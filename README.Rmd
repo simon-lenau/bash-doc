@@ -5,6 +5,20 @@ output:
     variant: markdown_github
 ---
 
+```{r, echo=FALSE,include=FALSE}
+options(crayon.enabled = TRUE)
+knitr::knit_hooks$set(output = function(x, options){
+  paste0(
+    '<pre class="r-output"><code>',
+    fansi::sgr_to_html(x = htmltools::htmlEscape(x), warn = FALSE),
+    '</code></pre>'
+  )
+})
+num_colors <- function(forget=TRUE) 256
+library(crayon)
+assignInNamespace("num_colors", num_colors, pos="package:crayon")
+```
+
 
 
 Simple functions for creating and formating documentation of bash scripts / functions
@@ -74,7 +88,7 @@ cat "examples/example_help.sh"
 
 ```{bash example_help,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export TERM="dumb"
+export TERM="xterm-256color"
 source "examples/example_help.sh"
 ```
 
