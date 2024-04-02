@@ -1,4 +1,4 @@
-#!/bin/bash
+#!bash
 
 if [ -n "${__bash_doc_included__}" ]; then return; fi
 export __bash_doc_included__=true

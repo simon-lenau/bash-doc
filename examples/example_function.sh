@@ -1,4 +1,4 @@
-#!/bin/bash
+#!bash
 source $(dirname "${BASH_SOURCE[0]}")/../init
 
 function example_function {
@@ -11,7 +11,12 @@ function example_function {
 
     need_help $@ && return $?
 
-    eval "$(parse_arguments "$@")"
+    # toparse="$(parse_arguments "$@")"
+    # echo "toparse:"
+    # printf ">>>\n${toparse[0]}\n<<<\n"
+    eval "$(parse_arguments "$@" || return 1) || return 1"
+
+    # echo "---------"
 
     echo "int_arg: ${int_arg[@]}"
     echo "str_arg: ${str_arg[@]}"

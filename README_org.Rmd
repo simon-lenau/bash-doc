@@ -94,7 +94,7 @@ export TERM="linux"
 source "examples/example_help.sh"
 ```
 
-### Specifying arguments
+### Setting arguments
 
 Defaults are used if an argument is not specified:
 
@@ -125,18 +125,6 @@ cat "examples/example_int_and_str.sh"
 ```{bash example_int_and_str,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
 source "examples/example_int_and_str.sh"
-```
-
-In any case, it is checked that only valid arguments are passed. An error is thrown otherwise:
-
-```{bash example_invalid_argument_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
-cat "examples/example_invalid_argument.sh"
-```
-
-```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE}
-source "examples/example_function.sh"
-export TERM="linux"
-source "examples/example_invalid_argument.sh"
 ```
 
 

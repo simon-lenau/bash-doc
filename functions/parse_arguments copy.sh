@@ -1,5 +1,7 @@
 #!bash
 
+declare -A argument_array
+
 # =========================== > make_declaration < =========================== #
 function make_declaration {
     varname="${1}"
@@ -43,71 +45,57 @@ function make_declaration {
 # └└────────────────────────────────────────────────────────────────────────┘┘ #
 
 function parse_arguments {
-    declare -A arg_array
-    argname=""
-    argval=""
+    key=""
+    value=""
+    i=0
+    j=0
     if [ "${#args[@]}" -gt "0" ]; then
         for ((i = 0; i < ${#args[@]}; i++)); do
-            arg_array["${args[$i]}"]="${argdefault[$i]}"
+            make_declaration "${args[$i]}" "${argdefault[$i]}"
         done
     fi
-    i=0
-    while [[ $# -gt "0" ]]; do
+    while [[ $# -gt 0 ]]; do
         case "$1" in
         --*=* | -*=*) # for arguments like --a=5
             ((i++))
             if [ "$i" -gt "1" ]; then
-                arg_array["$argname"]="$argval"
+                make_declaration "$key" $value
             fi
-            argname="${1%%=*}"
-            argname="${argname#--}"
-            argname="${argname#-}"
-            argval=("${1#*=}")
+            key="${1%%=*}"
+            key="${key#--}"
+            key="${key#-}"
+            value=("${1#*=}")
             ;;
         --* | -*) # for arguments like --a 5
             ((i++))
             if [ "$i" -gt "1" ]; then
-                arg_array["$argname"]="$argval"
+                make_declaration "$key" $value
             fi
-            argname="${1}"
-            argname="${argname#--}"
-            argname="${argname#-}"
-            argval=("${2}")
+            key="${1}"
+            key="${key#--}"
+            key="${key#-}"
+            value=("${2}")
             shift
             ;;
         *)
-            argval+=("$1")
+            value+=("$1")
             ;;
         esac
-        shift
-    done
 
-    if [ ! -z "$argname" ]; then
-        arg_array["$argname"]="$argval"
-    fi
-
-    # Check if all arguments are valid
-    check=${#arg_array[@]}
-    echo "echo \"Check is $check\""
-
-    for argname in ${!arg_array[@]}; do
-        if [[ " ${args[@]} " =~ " ${argname} " ]]; then
-            ((check--))
-        else
-            echo "err \"Invalid argument to \`${FUNCNAME[@]:0:1}\`: \'${argname}\'\""
-            echo "return 1"
-            ((check++))
-            exit 1
+        if [ ! -z "${key}" ]; then
+            if [[ " ${args[@]} " =~ " ${key} " ]]; then
+                keys+=("$key")
+                vals+=("$value")
+            else
+                printf -- "err \"Invalid argument to '\`${FUNCNAME[@]:0:1}\`': \'${key}\'\""
+                return 1
+            fi
         fi
+        shift
+        
     done
-
-    echo "echo \"Check is $check\""
-
-    if [ "$check" -eq "0" ]; then
-        for argname in ${!arg_array[@]}; do
-            make_declaration "${argname}" "${arg_array[${argname}]}"
-        done
+    if [ ! -z "$key" ]; then
+        make_declaration "$key" $value
     fi
-
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #

@@ -42,7 +42,8 @@ function show_help {
             # Newline & indent
             newline 1 && indent
             # Argument default
-            format_arg_default "Default: ${argdefault[$i]}"
+            printf -- "Default: "
+            format_arg_default "${argdefault[$i]}"
         done
     fi
     newline 2 && indent 0

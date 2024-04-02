@@ -31,74 +31,34 @@ function fmt_help {
     formatter=""
 
     if [[ "${__bash_doc_output_redirected__}" == "false" ]] &&
-        [[ "${TERM}" == "rmd" ]]; then
-        formatter=css
-        span_fmt="display:inline-block;margin-left:${__bash_doc_indent__}em;"
-    elif [[ "${__bash_doc_output_redirected__}" == "false" ]] &&
         [[ "${__bash_doc_has_tput__}" == "true" ]]; then
-        formatter=tput
-    fi
 
-    if [[ "$formatter" == "tput" ]]; then
         reset_fmt="$(tput sgr0)"
-    elif [[ "$formatter" == "css" ]]; then
-        reset_fmt="</span>"
-    fi
 
-    if [[ "$type" == "arg" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        if [[ "$type" == "arg" ]]; then
             fmt="$(tput bold && tput setaf 1)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:red;${span_fmt}\">"
-        fi
-    elif [[ "$type" == "arg_desc" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        elif [[ "$type" == "arg_desc" ]]; then
             fmt="$(tput setaf 27)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:blue;${span_fmt}\">"
-        fi
-    elif [[ "$type" == "arg_default" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        elif [[ "$type" == "arg_default" ]]; then
             fmt="$(tput setaf 2)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:green;${span_fmt}\">"
-        fi
-    elif [[ "$type" == "func_desc" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        elif [[ "$type" == "func_desc" ]]; then
             fmt="$(tput bold && tput setaf 5)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:magenta;font-weight: bold;${span_fmt}\">"
-        fi
-    elif [[ "$type" == "func_name" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        elif [[ "$type" == "func_name" ]]; then
             fmt="$(tput bold)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:black;font-weight: bold;${span_fmt}\">"
-        fi
-    elif [[ "$type" == "header" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        elif [[ "$type" == "header" ]]; then
             fmt="$(tput bold && tput smul)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:black;font-weight: bold;text-decoration: underline;${span_fmt}\">"
-        fi
-    elif [[ "$type" == "type" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        elif [[ "$type" == "type" ]]; then
             fmt="$(tput setaf 6)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:turquoise;${span_fmt}\">"
-        fi
-    elif [[ "$type" == "val" ]]; then
-        if [[ "$formatter" == "tput" ]]; then
+        elif [[ "$type" == "val" ]]; then
             fmt="$(tput bold)"
-        elif [[ "$formatter" == "css" ]]; then
-            fmt="<span style=\"color:black;font-weight: bold;${span_fmt}\">"
         fi
+
     fi
 
     printf "%b" "$fmt$(
         echo "${@: -1}" |
             sed \
-                -e 's/\\n/\n'"$(indent)"'/g'
+                -e 's/\n/\n'"$(indent)"'/g'
     )$reset_fmt"
 }
 # $(indent)
@@ -118,11 +78,7 @@ function format_arg_usage {
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
 function format_arg_type {
-    if [[ "${TERM}" == "rmd" ]]; then
-        fmt_help --type="type" "$(printf "%-${1}b" "\<${2}\>")"
-    else
-        fmt_help --type="type" "$(printf "%-${1}b" "<${2}>")"
-    fi
+    fmt_help --type="type" "$(printf "%-${1}b" "<${2}>")"
 }
 
 function format_arg_desc {

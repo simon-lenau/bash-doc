@@ -3,12 +3,10 @@
 function err {
     fmt=""
     reset_fmt=""
-    if [ -t 2 ]; then
-        command -v "tput" >/dev/null 2>&1 &&
-            {
-                fmt="$(tput setaf 1 && tput bold)"
-                reset_fmt="$(tput sgr0)"
-            }
+    if [[ "${__bash_doc_output_redirected__}" == "false" ]] &&
+        [[ "${__bash_doc_has_tput__}" == "true" ]]; then
+        fmt="$(tput setaf 1 && tput bold)"
+        reset_fmt="$(tput sgr0)"
     fi
 
     printf "%b" \
