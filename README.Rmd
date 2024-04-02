@@ -86,7 +86,7 @@ source "examples/example_function.sh"
 cat "examples/example_help.sh"
 ```
 
-```{bash example_help,echo=FALSE,comment=NA}
+```{bash example_help,echo=FALSE,comment=NA,class.output="html"}
 source "examples/example_function.sh"
 export TERM="xterm-256color"
 source "examples/example_help.sh"
