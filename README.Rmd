@@ -14,7 +14,7 @@ knitr::knit_hooks$set(output = function(x, options){
     # '<pre class="r-output">',
     paste0(
       # "<code>",
-      "$\\color{#BB00BB}{\\text{",
+      "$\\color{#BB00BB}{\\url{",
       fansi::to_html(x = htmltools::htmlEscape((unlist(strsplit(x,"\n")))), warn = FALSE,carry=FALSE),
       "}}$",
       # "</code>",

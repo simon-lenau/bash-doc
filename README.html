@@ -674,88 +674,83 @@ available, tput is used for colouring.</p>
 <h2 id="examples">Examples</h2>
 <p>The following function is a basic example of how to use
 <code>bash-doc</code>:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{#!bash}}\)</span>
-<span class="math inline">\(\color{#BB00BB}{\text{source $(dirname
-&quot;${BASH_SOURCE[0]}&quot;)/../init}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{}}\)</span>
-$\color{#BB00BB}{\text{function example_function {}}$ <span class="math inline">\(\color{#BB00BB}{\text{    init_doc}}\)</span>
-$\color{#BB00BB}{\text{ init_desc }}$ <span class="math inline">\(\color{#BB00BB}{\text{        &quot;This is
+<p><span class="math inline">\(\color{#BB00BB}{\url{#!bash}}\)</span> $$
+<span class="math inline">\(\color{#BB00BB}{\url{}}\)</span>
+$\color{#BB00BB}{\url{function example_function {}}$ <span class="math inline">\(\color{#BB00BB}{\url{    init_doc}}\)</span>
+$\color{#BB00BB}{\url{ init_desc }}$ <span class="math inline">\(\color{#BB00BB}{\url{        &quot;This is
 an&quot; \}}$
-$\color{#BB00BB}{\text{        &quot;Example function&quot;}}$
-$\color{#BB00BB}{\text{    init_arg &quot;int&quot; &quot;int_arg&quot;
+$\color{#BB00BB}{\url{        &quot;Example function&quot;}}$
+$\color{#BB00BB}{\url{    init_arg &quot;int&quot; &quot;int_arg&quot;
 &quot;This is some int argument&quot; &quot;default_int&quot;}}$
-$\color{#BB00BB}{\text{    init_arg &quot;str&quot; &quot;str_arg&quot;
+$\color{#BB00BB}{\url{    init_arg &quot;str&quot; &quot;str_arg&quot;
 &quot;This is some string argument&quot; &quot;default_str&quot;}}$
-$\color{#BB00BB}{\text{}}$
-$\color{#BB00BB}{\text{    need_help $@ &amp;amp;&amp;amp; return $?}}$
-$\color{#BB00BB}{\text{}}$
-$\color{#BB00BB}{\text{    eval &quot;$(parse_arguments
-&quot;$@&quot;)&quot;}}$
-$\color{#BB00BB}{\text{}}$
-$\color{#BB00BB}{\text{    echo &quot;int_arg: ${int_arg[@]}&quot;}}$
-$\color{#BB00BB}{\text{    echo &quot;str_arg: ${str_arg[@]}&quot;}}$
-$\color{#BB00BB}{\text{}}$ $\color{#BB00BB}{\text{}}}\)</span></p>
+$\color{#BB00BB}{\url{}}$ \$\$ $\color{#BB00BB}{\url{}}$
+$\color{#BB00BB}{\url{    eval &quot;$(parse_arguments
+“$@&quot;)&quot;}}$
+$\color{#BB00BB}{\url{}}$ \$\$ \$\$ $\color{#BB00BB}{\url{}}$
+$\color{#BB00BB}{\url{}}}\)</span></p>
 <h3 id="printing-help">Printing help</h3>
-<p><span class="math inline">\(\color{#BB00BB}{\text{example_function
+<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
 --help}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{&lt;span
+<p><span class="math inline">\(\color{#BB00BB}{\url{&lt;span
 style=&#39;font-weight:
-bold;&#39;&gt;example_function&lt;/span&gt;   }}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{   &lt;span
-style=&#39;color: #BB00BB; font-weight: bold;&#39;&gt;This is
-an&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{   &lt;span
+bold;&#39;&gt;example_function&lt;/span&gt;   }}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{   &lt;span style=&#39;color:
+#BB00BB; font-weight: bold;&#39;&gt;This is an&lt;/span&gt;}}\)</span>
+<span class="math inline">\(\color{#BB00BB}{\url{   &lt;span
 style=&#39;color: #BB00BB; font-weight: bold;&#39;&gt;Example
-function&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{   &lt;span
+function&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{   &lt;span
 style=&#39;font-weight: bold; text-decoration:
-underline;&#39;&gt;Arguments:&lt;/span&gt;      }}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{      &lt;span
+underline;&#39;&gt;Arguments:&lt;/span&gt;      }}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{      &lt;span
 style=&#39;color: #BB0000; font-weight:
 bold;&#39;&gt;--int_arg  &lt;/span&gt;&lt;span style=&#39;color:
-#00BBBB;&#39;&gt;&amp;lt;int&amp;gt; &lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{         This is some int
-argument}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{         Default: &lt;span
+#00BBBB;&#39;&gt;&amp;lt;int&amp;gt; &lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         This is some int
+argument}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         Default: &lt;span
 style=&#39;color: #00BB00;&#39;&gt;default_int&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{#BB00BB}{\text{      &lt;span
+<span class="math inline">\(\color{#BB00BB}{\url{      &lt;span
 style=&#39;color: #BB0000; font-weight:
 bold;&#39;&gt;--str_arg  &lt;/span&gt;&lt;span style=&#39;color:
-#00BBBB;&#39;&gt;&amp;lt;str&amp;gt; &lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{         This is some string
-argument}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{         Default: &lt;span
+#00BBBB;&#39;&gt;&amp;lt;str&amp;gt; &lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         This is some string
+argument}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         Default: &lt;span
 style=&#39;color: #00BB00;&#39;&gt;default_str&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{#BB00BB}{\text{}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{   &lt;span
+<span class="math inline">\(\color{#BB00BB}{\url{}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{   &lt;span
 style=&#39;font-weight: bold; text-decoration:
 underline;&#39;&gt;Usage:&lt;/span&gt;      }}\)</span>
-$\color{#BB00BB}{\text{
+$\color{#BB00BB}{\url{
 <span style="font-weight: bold;">example_function</span> }}$
-$\color{#BB00BB}{\text{
+$\color{#BB00BB}{\url{
 <span style="color: #BB0000; font-weight: bold;">--int_arg
-</span>&quot;<span style="color: #00BB00;">default_int</span>&quot; }}$ <span class="math inline">\(\color{#BB00BB}{\text{         &lt;span
+</span>&quot;<span style="color: #00BB00;">default_int</span>&quot; }}$ <span class="math inline">\(\color{#BB00BB}{\url{         &lt;span
 style=&#39;color: #BB0000; font-weight:
 bold;&#39;&gt;--str_arg  &lt;/span&gt;&quot;&lt;span style=&#39;color:
 #00BB00;&#39;&gt;default_str&lt;/span&gt;&quot;}}\)</span></p>
 <h3 id="specifying-arguments">Specifying arguments</h3>
 <p>Defaults are used if an argument is not specified:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{example_function
+<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
 --str_arg &quot;Example 1&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{int_arg:
-default_int}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{str_arg: Example
+<p><span class="math inline">\(\color{#BB00BB}{\url{int_arg:
+default_int}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{str_arg: Example
 1}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{example_function
+<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
 --int_arg &quot;2&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{int_arg:
-2}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{str_arg:
+<p><span class="math inline">\(\color{#BB00BB}{\url{int_arg:
+2}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{str_arg:
 default_str}}\)</span></p>
 <p>but setting an argument overwrites the defaults:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{example_function
+<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
 --int_arg &quot;3&quot; --str_arg &quot;Example 3&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{int_arg:
-3}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{str_arg:
+<p><span class="math inline">\(\color{#BB00BB}{\url{int_arg:
+3}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{str_arg:
 Example 3}}\)</span></p>
 <p>In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{example_function
+<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
 --int_arg &quot;4&quot; --invalid_arg &quot;Example
 4&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\text{&lt;span
+<p><span class="math inline">\(\color{#BB00BB}{\url{&lt;span
 style=&#39;color: #BB0000; font-weight: bold;&#39;&gt;[2024/04/04 --
-12:15:26] Error in
-`examples/example_function.sh:14`&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\text{&lt;span style=&#39;color:
-#BB0000; font-weight: bold;&#39;&gt;[2024/04/04 -- 12:15:26]    Invalid
+12:16:39] Error in
+`examples/example_function.sh:14`&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{&lt;span style=&#39;color:
+#BB0000; font-weight: bold;&#39;&gt;[2024/04/04 -- 12:16:39] Invalid
 argument to `example_function`:
 &#39;invalid_arg&#39;&lt;/span&gt;}}\)</span></p>
 
