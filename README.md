@@ -112,5 +112,5 @@ In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:
 
 <pre class="r-output"><code>example_function --int_arg "4" --invalid_arg "Example 4"</code></pre>
-<pre class="r-output"><code><span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 10:46:35] Error in `examples/example_function.sh:14`</span></code>
-<code><span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 10:46:35] Invalid argument to `example_function`: 'invalid_arg'</span></code></pre>
+<pre class="r-output"><code><span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 10:55:57] Error in `examples/example_function.sh:14`</span></code>
+<code><span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 10:55:57] Invalid argument to `example_function`: 'invalid_arg'</span></code></pre>
