@@ -53,65 +53,66 @@ colouring.
 
 The following function is a basic example of how to use `bash-doc`:
 
-$\color{#BB00BB}{\url{#!bash}}$ \$\$ $\color{#BB00BB}{\url{}}$
-$\color{#BB00BB}{\url{function example_function {}}$
-$\color{#BB00BB}{\url{    init_doc}}$
-$\color{#BB00BB}{\url{    init_desc \}}$
-$\color{#BB00BB}{\url{        "This is an" \}}$
-$\color{#BB00BB}{\url{        "Example function"}}$
-$\color{#BB00BB}{\url{    init_arg "int" "int_arg" "This is some int argument" "default_int"}}$
-$\color{#BB00BB}{\url{    init_arg "str" "str_arg" "This is some string argument" "default_str"}}$
-$\color{#BB00BB}{\url{}}$ \$\$ $\color{#BB00BB}{\url{}}$
-$\color{#BB00BB}{\url{    eval "$(parse_arguments “$@")"}}$
-$\color{#BB00BB}{\url{}}$ \$\$ \$\$ $\color{#BB00BB}{\url{}}$
-$\color{#BB00BB}{\url{}}}$
+<pre class="r-output"><code>#!bash</code>
+<code>source $(dirname "${BASH_SOURCE[0]}")/../init</code>
+<code></code>
+<code>function example_function {</code>
+<code>    init_doc</code>
+<code>    init_desc \</code>
+<code>        "This is an" \</code>
+<code>        "Example function"</code>
+<code>    init_arg "int" "int_arg" "This is some int argument" "default_int"</code>
+<code>    init_arg "str" "str_arg" "This is some string argument" "default_str"</code>
+<code></code>
+<code>    need_help $@ &amp;&amp; return $?</code>
+<code></code>
+<code>    eval "$(parse_arguments "$@")"</code>
+<code></code>
+<code>    echo "int_arg: ${int_arg[@]}"</code>
+<code>    echo "str_arg: ${str_arg[@]}"</code>
+<code></code>
+<code>}</code></pre>
 
 ### Printing help
 
-$\color{#BB00BB}{\url{example_function --help}}$
-
-$\color{#BB00BB}{\url{<span style='font-weight: bold;'>example_function</span>   }}$
-$\color{#BB00BB}{\url{   <span style='color: #BB00BB; font-weight: bold;'>This is an</span>}}$
-$\color{#BB00BB}{\url{   <span style='color: #BB00BB; font-weight: bold;'>Example function</span>}}$
-$\color{#BB00BB}{\url{}}$
-$\color{#BB00BB}{\url{   <span style='font-weight: bold; text-decoration: underline;'>Arguments:</span>      }}$
-$\color{#BB00BB}{\url{      <span style='color: #BB0000; font-weight: bold;'>--int_arg  </span><span style='color: #00BBBB;'>&lt;int&gt; </span>}}$
-$\color{#BB00BB}{\url{         This is some int argument}}$
-$\color{#BB00BB}{\url{         Default: <span style='color: #00BB00;'>default_int</span>}}$
-$\color{#BB00BB}{\url{      <span style='color: #BB0000; font-weight: bold;'>--str_arg  </span><span style='color: #00BBBB;'>&lt;str&gt; </span>}}$
-$\color{#BB00BB}{\url{         This is some string argument}}$
-$\color{#BB00BB}{\url{         Default: <span style='color: #00BB00;'>default_str</span>}}$
-$\color{#BB00BB}{\url{}}$
-$\color{#BB00BB}{\url{   <span style='font-weight: bold; text-decoration: underline;'>Usage:</span>      }}$
-$\color{#BB00BB}{\url{      <span style='font-weight: bold;'>example_function</span> \}}$
-$\color{#BB00BB}{\url{         <span style='color: #BB0000; font-weight: bold;'>--int_arg  </span>"<span style='color: #00BB00;'>default_int</span>" \}}$
-$\color{#BB00BB}{\url{         <span style='color: #BB0000; font-weight: bold;'>--str_arg  </span>"<span style='color: #00BB00;'>default_str</span>"}}$
+<pre class="r-output"><code>example_function --help</code></pre>
+<pre class="r-output"><code>[1mexample_function[m   </code>
+<code>   [1m[35mThis is an[m</code>
+<code>   [1m[35mExample function[m</code>
+<code></code>
+<code>   [1m[4mArguments:[m      </code>
+<code>      [1m[31m--int_arg  [m[36m&lt;int&gt; [m</code>
+<code>         [327mThis is some int argument[m</code>
+<code>         Default: [32mdefault_int[m</code>
+<code>      [1m[31m--str_arg  [m[36m&lt;str&gt; [m</code>
+<code>         [327mThis is some string argument[m</code>
+<code>         Default: [32mdefault_str[m</code>
+<code></code>
+<code>   [1m[4mUsage:[m      </code>
+<code>      [1mexample_function[m \</code>
+<code>         [1m[31m--int_arg  [m"[32mdefault_int[m" \</code>
+<code>         [1m[31m--str_arg  [m"[32mdefault_str[m"</code></pre>
 
 ### Specifying arguments
 
 Defaults are used if an argument is not specified:
 
-$\color{#BB00BB}{\url{example_function --str_arg "Example 1"}}$
-
-$\color{#BB00BB}{\url{int_arg: default_int}}$
-$\color{#BB00BB}{\url{str_arg: Example 1}}$
-
-$\color{#BB00BB}{\url{example_function --int_arg "2"}}$
-
-$\color{#BB00BB}{\url{int_arg: 2}}$
-$\color{#BB00BB}{\url{str_arg: default_str}}$
+<pre class="r-output"><code>example_function --str_arg "Example 1"</code></pre>
+<pre class="r-output"><code>int_arg: default_int</code>
+<code>str_arg: Example 1</code></pre>
+<pre class="r-output"><code>example_function --int_arg "2"</code></pre>
+<pre class="r-output"><code>int_arg: 2</code>
+<code>str_arg: default_str</code></pre>
 
 but setting an argument overwrites the defaults:
 
-$\color{#BB00BB}{\url{example_function --int_arg "3" --str_arg "Example 3"}}$
-
-$\color{#BB00BB}{\url{int_arg: 3}}$
-$\color{#BB00BB}{\url{str_arg: Example 3}}$
+<pre class="r-output"><code>example_function --int_arg "3" --str_arg "Example 3"</code></pre>
+<pre class="r-output"><code>int_arg: 3</code>
+<code>str_arg: Example 3</code></pre>
 
 In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:
 
-$\color{#BB00BB}{\url{example_function --int_arg "4" --invalid_arg "Example 4"}}$
-
-$\color{#BB00BB}{\url{<span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 12:16:39] Error in `examples/example_function.sh:14`</span>}}$
-$\color{#BB00BB}{\url{<span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 12:16:39] Invalid argument to `example_function`: 'invalid_arg'</span>}}$
+<pre class="r-output"><code>example_function --int_arg "4" --invalid_arg "Example 4"</code></pre>
+<pre class="r-output"><code>[31m[1m[2024/04/04 -- 12:18:22] Error in `examples/example_function.sh:14`</code>
+<code>[31m[1m[2024/04/04 -- 12:18:22] Invalid argument to `example_function`: 'invalid_arg'[m</code></pre>

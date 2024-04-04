@@ -674,85 +674,70 @@ available, tput is used for colouring.</p>
 <h2 id="examples">Examples</h2>
 <p>The following function is a basic example of how to use
 <code>bash-doc</code>:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{#!bash}}\)</span> $$
-<span class="math inline">\(\color{#BB00BB}{\url{}}\)</span>
-$\color{#BB00BB}{\url{function example_function {}}$ <span class="math inline">\(\color{#BB00BB}{\url{    init_doc}}\)</span>
-$\color{#BB00BB}{\url{ init_desc }}$ <span class="math inline">\(\color{#BB00BB}{\url{        &quot;This is
-an&quot; \}}$
-$\color{#BB00BB}{\url{        &quot;Example function&quot;}}$
-$\color{#BB00BB}{\url{    init_arg &quot;int&quot; &quot;int_arg&quot;
-&quot;This is some int argument&quot; &quot;default_int&quot;}}$
-$\color{#BB00BB}{\url{    init_arg &quot;str&quot; &quot;str_arg&quot;
-&quot;This is some string argument&quot; &quot;default_str&quot;}}$
-$\color{#BB00BB}{\url{}}$ \$\$ $\color{#BB00BB}{\url{}}$
-$\color{#BB00BB}{\url{    eval &quot;$(parse_arguments
-“$@&quot;)&quot;}}$
-$\color{#BB00BB}{\url{}}$ \$\$ \$\$ $\color{#BB00BB}{\url{}}$
-$\color{#BB00BB}{\url{}}}\)</span></p>
+<pre class="r-output"><code>#!bash</code>
+<code>source $(dirname &quot;${BASH_SOURCE[0]}&quot;)/../init</code>
+<code></code>
+<code>function example_function {</code>
+<code>    init_doc</code>
+<code>    init_desc \</code>
+<code>        &quot;This is an&quot; \</code>
+<code>        &quot;Example function&quot;</code>
+<code>    init_arg &quot;int&quot; &quot;int_arg&quot; &quot;This is some int argument&quot; &quot;default_int&quot;</code>
+<code>    init_arg &quot;str&quot; &quot;str_arg&quot; &quot;This is some string argument&quot; &quot;default_str&quot;</code>
+<code></code>
+<code>    need_help $@ &amp;&amp; return $?</code>
+<code></code>
+<code>    eval &quot;$(parse_arguments &quot;$@&quot;)&quot;</code>
+<code></code>
+<code>    echo &quot;int_arg: ${int_arg[@]}&quot;</code>
+<code>    echo &quot;str_arg: ${str_arg[@]}&quot;</code>
+<code></code>
+<code>}</code></pre>
+
 <h3 id="printing-help">Printing help</h3>
-<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
---help}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{&lt;span
-style=&#39;font-weight:
-bold;&#39;&gt;example_function&lt;/span&gt;   }}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{   &lt;span style=&#39;color:
-#BB00BB; font-weight: bold;&#39;&gt;This is an&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{#BB00BB}{\url{   &lt;span
-style=&#39;color: #BB00BB; font-weight: bold;&#39;&gt;Example
-function&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{   &lt;span
-style=&#39;font-weight: bold; text-decoration:
-underline;&#39;&gt;Arguments:&lt;/span&gt;      }}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{      &lt;span
-style=&#39;color: #BB0000; font-weight:
-bold;&#39;&gt;--int_arg  &lt;/span&gt;&lt;span style=&#39;color:
-#00BBBB;&#39;&gt;&amp;lt;int&amp;gt; &lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         This is some int
-argument}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         Default: &lt;span
-style=&#39;color: #00BB00;&#39;&gt;default_int&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{#BB00BB}{\url{      &lt;span
-style=&#39;color: #BB0000; font-weight:
-bold;&#39;&gt;--str_arg  &lt;/span&gt;&lt;span style=&#39;color:
-#00BBBB;&#39;&gt;&amp;lt;str&amp;gt; &lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         This is some string
-argument}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{         Default: &lt;span
-style=&#39;color: #00BB00;&#39;&gt;default_str&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{#BB00BB}{\url{}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{   &lt;span
-style=&#39;font-weight: bold; text-decoration:
-underline;&#39;&gt;Usage:&lt;/span&gt;      }}\)</span>
-$\color{#BB00BB}{\url{
-<span style="font-weight: bold;">example_function</span> }}$
-$\color{#BB00BB}{\url{
-<span style="color: #BB0000; font-weight: bold;">--int_arg
-</span>&quot;<span style="color: #00BB00;">default_int</span>&quot; }}$ <span class="math inline">\(\color{#BB00BB}{\url{         &lt;span
-style=&#39;color: #BB0000; font-weight:
-bold;&#39;&gt;--str_arg  &lt;/span&gt;&quot;&lt;span style=&#39;color:
-#00BB00;&#39;&gt;default_str&lt;/span&gt;&quot;}}\)</span></p>
+<pre class="r-output"><code>example_function --help</code></pre>
+
+<pre class="r-output"><code>[1mexample_function[m   </code>
+<code>   [1m[35mThis is an[m</code>
+<code>   [1m[35mExample function[m</code>
+<code></code>
+<code>   [1m[4mArguments:[m      </code>
+<code>      [1m[31m--int_arg  [m[36m&lt;int&gt; [m</code>
+<code>         [327mThis is some int argument[m</code>
+<code>         Default: [32mdefault_int[m</code>
+<code>      [1m[31m--str_arg  [m[36m&lt;str&gt; [m</code>
+<code>         [327mThis is some string argument[m</code>
+<code>         Default: [32mdefault_str[m</code>
+<code></code>
+<code>   [1m[4mUsage:[m      </code>
+<code>      [1mexample_function[m \</code>
+<code>         [1m[31m--int_arg  [m&quot;[32mdefault_int[m&quot; \</code>
+<code>         [1m[31m--str_arg  [m&quot;[32mdefault_str[m&quot;</code></pre>
+
 <h3 id="specifying-arguments">Specifying arguments</h3>
 <p>Defaults are used if an argument is not specified:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
---str_arg &quot;Example 1&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{int_arg:
-default_int}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{str_arg: Example
-1}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
---int_arg &quot;2&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{int_arg:
-2}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{str_arg:
-default_str}}\)</span></p>
+<pre class="r-output"><code>example_function --str_arg &quot;Example 1&quot;</code></pre>
+
+<pre class="r-output"><code>int_arg: default_int</code>
+<code>str_arg: Example 1</code></pre>
+
+<pre class="r-output"><code>example_function --int_arg &quot;2&quot;</code></pre>
+
+<pre class="r-output"><code>int_arg: 2</code>
+<code>str_arg: default_str</code></pre>
+
 <p>but setting an argument overwrites the defaults:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
---int_arg &quot;3&quot; --str_arg &quot;Example 3&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{int_arg:
-3}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{str_arg:
-Example 3}}\)</span></p>
+<pre class="r-output"><code>example_function --int_arg &quot;3&quot; --str_arg &quot;Example 3&quot;</code></pre>
+
+<pre class="r-output"><code>int_arg: 3</code>
+<code>str_arg: Example 3</code></pre>
+
 <p>In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:</p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{example_function
---int_arg &quot;4&quot; --invalid_arg &quot;Example
-4&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{#BB00BB}{\url{&lt;span
-style=&#39;color: #BB0000; font-weight: bold;&#39;&gt;[2024/04/04 --
-12:16:39] Error in
-`examples/example_function.sh:14`&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{#BB00BB}{\url{&lt;span style=&#39;color:
-#BB0000; font-weight: bold;&#39;&gt;[2024/04/04 -- 12:16:39] Invalid
-argument to `example_function`:
-&#39;invalid_arg&#39;&lt;/span&gt;}}\)</span></p>
+<pre class="r-output"><code>example_function --int_arg &quot;4&quot; --invalid_arg &quot;Example 4&quot;</code></pre>
+
+<pre class="r-output"><code>[31m[1m[2024/04/04 -- 12:18:22] Error in `examples/example_function.sh:14`</code>
+<code>[31m[1m[2024/04/04 -- 12:18:22] Invalid argument to `example_function`: &#39;invalid_arg&#39;[m</code></pre>
 
 </body>
 </html>
