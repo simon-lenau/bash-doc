@@ -697,22 +697,58 @@ available, tput is used for colouring.</p>
 <h3 id="printing-help">Printing help</h3>
 <pre class="r-output"><code>example_function --help</code></pre>
 
-<pre class="r-output"><code>[1mexample_function[m   </code>
-<code>   [1m[35mThis is an[m</code>
-<code>   [1m[35mExample function[m</code>
+<pre class="r-output"><code>tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>example_function   </code>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>This is an</code>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>Example function</code>
 <code></code>
-<code>   [1m[4mArguments:[m      </code>
-<code>      [1m[31m--int_arg  [m[36m&lt;int&gt; [m</code>
-<code>         [327mThis is some int argument[m</code>
-<code>         Default: [32mdefault_int[m</code>
-<code>      [1m[31m--str_arg  [m[36m&lt;str&gt; [m</code>
-<code>         [327mThis is some string argument[m</code>
-<code>         Default: [32mdefault_str[m</code>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>Arguments:      </code>
+<code>      tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--int_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>&lt;int&gt; </code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>This is some int argument</code>
+<code>         Default: tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>default_int</code>
+<code>      tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--str_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>&lt;str&gt; </code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>This is some string argument</code>
+<code>         Default: tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>default_str</code>
 <code></code>
-<code>   [1m[4mUsage:[m      </code>
-<code>      [1mexample_function[m \</code>
-<code>         [1m[31m--int_arg  [m&quot;[32mdefault_int[m&quot; \</code>
-<code>         [1m[31m--str_arg  [m&quot;[32mdefault_str[m&quot;</code></pre>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>Usage:      </code>
+<code>      tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>example_function \</code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--int_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>&quot;default_int&quot; \</code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--str_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>&quot;default_str&quot;</code></pre>
 
 <h3 id="specifying-arguments">Specifying arguments</h3>
 <p>Defaults are used if an argument is not specified:</p>
@@ -736,8 +772,10 @@ available, tput is used for colouring.</p>
 error is thrown otherwise:</p>
 <pre class="r-output"><code>example_function --int_arg &quot;4&quot; --invalid_arg &quot;Example 4&quot;</code></pre>
 
-<pre class="r-output"><code>[31m[1m[2024/04/04 -- 12:18:22] Error in `examples/example_function.sh:14`</code>
-<code>[31m[1m[2024/04/04 -- 12:18:22] Invalid argument to `example_function`: &#39;invalid_arg&#39;[m</code></pre>
+<pre class="r-output"><code>tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>[2024/04/04 -- 12:19:07] Error in `examples/example_function.sh:14`</code>
+<code>[2024/04/04 -- 12:19:07]  Invalid argument to `example_function`: &#39;invalid_arg&#39;</code></pre>
 
 </body>
 </html>

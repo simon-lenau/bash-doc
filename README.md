@@ -76,22 +76,58 @@ The following function is a basic example of how to use `bash-doc`:
 ### Printing help
 
 <pre class="r-output"><code>example_function --help</code></pre>
-<pre class="r-output"><code>[1mexample_function[m   </code>
-<code>   [1m[35mThis is an[m</code>
-<code>   [1m[35mExample function[m</code>
+<pre class="r-output"><code>tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>example_function   </code>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>This is an</code>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>Example function</code>
 <code></code>
-<code>   [1m[4mArguments:[m      </code>
-<code>      [1m[31m--int_arg  [m[36m&lt;int&gt; [m</code>
-<code>         [327mThis is some int argument[m</code>
-<code>         Default: [32mdefault_int[m</code>
-<code>      [1m[31m--str_arg  [m[36m&lt;str&gt; [m</code>
-<code>         [327mThis is some string argument[m</code>
-<code>         Default: [32mdefault_str[m</code>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>Arguments:      </code>
+<code>      tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--int_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>&lt;int&gt; </code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>This is some int argument</code>
+<code>         Default: tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>default_int</code>
+<code>      tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--str_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>&lt;str&gt; </code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>This is some string argument</code>
+<code>         Default: tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>default_str</code>
 <code></code>
-<code>   [1m[4mUsage:[m      </code>
-<code>      [1mexample_function[m \</code>
-<code>         [1m[31m--int_arg  [m"[32mdefault_int[m" \</code>
-<code>         [1m[31m--str_arg  [m"[32mdefault_str[m"</code></pre>
+<code>   tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>Usage:      </code>
+<code>      tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>example_function \</code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--int_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>"default_int" \</code>
+<code>         tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>--str_arg  tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>"default_str"</code></pre>
 
 ### Specifying arguments
 
@@ -114,5 +150,7 @@ In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:
 
 <pre class="r-output"><code>example_function --int_arg "4" --invalid_arg "Example 4"</code></pre>
-<pre class="r-output"><code>[31m[1m[2024/04/04 -- 12:18:22] Error in `examples/example_function.sh:14`</code>
-<code>[31m[1m[2024/04/04 -- 12:18:22] Invalid argument to `example_function`: 'invalid_arg'[m</code></pre>
+<pre class="r-output"><code>tput: No value for $TERM and no -T specified</code>
+<code>tput: No value for $TERM and no -T specified</code>
+<code>[2024/04/04 -- 12:19:07] Error in `examples/example_function.sh:14`</code>
+<code>[2024/04/04 -- 12:19:07]  Invalid argument to `example_function`: 'invalid_arg'</code></pre>

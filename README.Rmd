@@ -96,7 +96,6 @@ cat "examples/example_help.sh"
 
 ```{bash example_help,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
-export TERM="linux"
 source "examples/example_help.sh"
 ```
 
@@ -140,7 +139,7 @@ cat "examples/example_invalid_argument.sh"
 ```
 
 ```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE,class.output="html"}
-source "examples/example_function.sh";export TERM="linux";
+source "examples/example_function.sh"
 source "examples/example_invalid_argument.sh"
 ```
 
