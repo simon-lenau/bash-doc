@@ -638,70 +638,70 @@ available, tput is used for colouring.</p>
 <h2 id="examples">Examples</h2>
 <p>The following function is a basic example of how to use
 <code>bash-doc</code>:</p>
-<pre class="r-output"><code>$$\color{red}{#!bash}</code>
-<code>$$\color{red}{source $(dirname &quot;${BASH_SOURCE[0]}&quot;)/../init}</code>
-<code>$$\color{red}{}</code>
-<code>$$\color{red}{function example_function {}</code>
-<code>$$\color{red}{    init_doc}</code>
-<code>$$\color{red}{    init_desc \}</code>
-<code>$$\color{red}{        &quot;This is an&quot; \}</code>
-<code>$$\color{red}{        &quot;Example function&quot;}</code>
-<code>$$\color{red}{    init_arg &quot;int&quot; &quot;int_arg&quot; &quot;This is some int argument&quot; &quot;default_int&quot;}</code>
-<code>$$\color{red}{    init_arg &quot;str&quot; &quot;str_arg&quot; &quot;This is some string argument&quot; &quot;default_str&quot;}</code>
-<code>$$\color{red}{}</code>
-<code>$$\color{red}{    need_help $@ &amp;&amp; return $?}</code>
-<code>$$\color{red}{}</code>
-<code>$$\color{red}{    eval &quot;$(parse_arguments &quot;$@&quot;)&quot;}</code>
-<code>$$\color{red}{}</code>
-<code>$$\color{red}{    echo &quot;int_arg: ${int_arg[@]}&quot;}</code>
-<code>$$\color{red}{    echo &quot;str_arg: ${str_arg[@]}&quot;}</code>
-<code>$$\color{red}{}</code>
-<code>$$\color{red}{}}</code></pre>
+<pre class="r-output"><code>$$\color{red}{#!bash}$$</code>
+<code>$$\color{red}{source $(dirname &quot;${BASH_SOURCE[0]}&quot;)/../init}$$</code>
+<code>$$\color{red}{}$$</code>
+<code>$$\color{red}{function example_function {}$$</code>
+<code>$$\color{red}{    init_doc}$$</code>
+<code>$$\color{red}{    init_desc \}$$</code>
+<code>$$\color{red}{        &quot;This is an&quot; \}$$</code>
+<code>$$\color{red}{        &quot;Example function&quot;}$$</code>
+<code>$$\color{red}{    init_arg &quot;int&quot; &quot;int_arg&quot; &quot;This is some int argument&quot; &quot;default_int&quot;}$$</code>
+<code>$$\color{red}{    init_arg &quot;str&quot; &quot;str_arg&quot; &quot;This is some string argument&quot; &quot;default_str&quot;}$$</code>
+<code>$$\color{red}{}$$</code>
+<code>$$\color{red}{    need_help $@ &amp;&amp; return $?}$$</code>
+<code>$$\color{red}{}$$</code>
+<code>$$\color{red}{    eval &quot;$(parse_arguments &quot;$@&quot;)&quot;}$$</code>
+<code>$$\color{red}{}$$</code>
+<code>$$\color{red}{    echo &quot;int_arg: ${int_arg[@]}&quot;}$$</code>
+<code>$$\color{red}{    echo &quot;str_arg: ${str_arg[@]}&quot;}$$</code>
+<code>$$\color{red}{}$$</code>
+<code>$$\color{red}{}}$$</code></pre>
 
 <h3 id="printing-help">Printing help</h3>
-<pre class="r-output"><code>$$\color{red}{example_function --help}</code></pre>
+<pre class="r-output"><code>$$\color{red}{example_function --help}$$</code></pre>
 
-<pre class="r-output"><code>$$\color{red}{<span style="font-weight: bold;">example_function</span>   }</code>
-<code>$$\color{red}{   <span style="color: #BB00BB; font-weight: bold;">This is an</span>}</code>
-<code>$$\color{red}{   <span style="color: #BB00BB; font-weight: bold;">Example function</span>}</code>
-<code>$$\color{red}{}</code>
-<code>$$\color{red}{   <span style="font-weight: bold; text-decoration: underline;">Arguments:</span>      }</code>
-<code>$$\color{red}{      <span style="color: #BB0000; font-weight: bold;">--int_arg  </span><span style="color: #00BBBB;">&lt;int&gt; </span>}</code>
-<code>$$\color{red}{         This is some int argument}</code>
-<code>$$\color{red}{         Default: <span style="color: #00BB00;">default_int</span>}</code>
-<code>$$\color{red}{      <span style="color: #BB0000; font-weight: bold;">--str_arg  </span><span style="color: #00BBBB;">&lt;str&gt; </span>}</code>
-<code>$$\color{red}{         This is some string argument}</code>
-<code>$$\color{red}{         Default: <span style="color: #00BB00;">default_str</span>}</code>
-<code>$$\color{red}{}</code>
-<code>$$\color{red}{   <span style="font-weight: bold; text-decoration: underline;">Usage:</span>      }</code>
-<code>$$\color{red}{      <span style="font-weight: bold;">example_function</span> \}</code>
-<code>$$\color{red}{         <span style="color: #BB0000; font-weight: bold;">--int_arg  </span>&quot;<span style="color: #00BB00;">default_int</span>&quot; \}</code>
-<code>$$\color{red}{         <span style="color: #BB0000; font-weight: bold;">--str_arg  </span>&quot;<span style="color: #00BB00;">default_str</span>&quot;}</code></pre>
+<pre class="r-output"><code>$$\color{red}{<span style="font-weight: bold;">example_function</span>   }$$</code>
+<code>$$\color{red}{   <span style="color: #BB00BB; font-weight: bold;">This is an</span>}$$</code>
+<code>$$\color{red}{   <span style="color: #BB00BB; font-weight: bold;">Example function</span>}$$</code>
+<code>$$\color{red}{}$$</code>
+<code>$$\color{red}{   <span style="font-weight: bold; text-decoration: underline;">Arguments:</span>      }$$</code>
+<code>$$\color{red}{      <span style="color: #BB0000; font-weight: bold;">--int_arg  </span><span style="color: #00BBBB;">&lt;int&gt; </span>}$$</code>
+<code>$$\color{red}{         This is some int argument}$$</code>
+<code>$$\color{red}{         Default: <span style="color: #00BB00;">default_int</span>}$$</code>
+<code>$$\color{red}{      <span style="color: #BB0000; font-weight: bold;">--str_arg  </span><span style="color: #00BBBB;">&lt;str&gt; </span>}$$</code>
+<code>$$\color{red}{         This is some string argument}$$</code>
+<code>$$\color{red}{         Default: <span style="color: #00BB00;">default_str</span>}$$</code>
+<code>$$\color{red}{}$$</code>
+<code>$$\color{red}{   <span style="font-weight: bold; text-decoration: underline;">Usage:</span>      }$$</code>
+<code>$$\color{red}{      <span style="font-weight: bold;">example_function</span> \}$$</code>
+<code>$$\color{red}{         <span style="color: #BB0000; font-weight: bold;">--int_arg  </span>&quot;<span style="color: #00BB00;">default_int</span>&quot; \}$$</code>
+<code>$$\color{red}{         <span style="color: #BB0000; font-weight: bold;">--str_arg  </span>&quot;<span style="color: #00BB00;">default_str</span>&quot;}$$</code></pre>
 
 <h3 id="specifying-arguments">Specifying arguments</h3>
 <p>Defaults are used if an argument is not specified:</p>
-<pre class="r-output"><code>$$\color{red}{example_function --str_arg &quot;Example 1&quot;}</code></pre>
+<pre class="r-output"><code>$$\color{red}{example_function --str_arg &quot;Example 1&quot;}$$</code></pre>
 
-<pre class="r-output"><code>$$\color{red}{int_arg: default_int}</code>
-<code>$$\color{red}{str_arg: Example 1}</code></pre>
+<pre class="r-output"><code>$$\color{red}{int_arg: default_int}$$</code>
+<code>$$\color{red}{str_arg: Example 1}$$</code></pre>
 
-<pre class="r-output"><code>$$\color{red}{example_function --int_arg &quot;2&quot;}</code></pre>
+<pre class="r-output"><code>$$\color{red}{example_function --int_arg &quot;2&quot;}$$</code></pre>
 
-<pre class="r-output"><code>$$\color{red}{int_arg: 2}</code>
-<code>$$\color{red}{str_arg: default_str}</code></pre>
+<pre class="r-output"><code>$$\color{red}{int_arg: 2}$$</code>
+<code>$$\color{red}{str_arg: default_str}$$</code></pre>
 
 <p>but setting an argument overwrites the defaults:</p>
-<pre class="r-output"><code>$$\color{red}{example_function --int_arg &quot;3&quot; --str_arg &quot;Example 3&quot;}</code></pre>
+<pre class="r-output"><code>$$\color{red}{example_function --int_arg &quot;3&quot; --str_arg &quot;Example 3&quot;}$$</code></pre>
 
-<pre class="r-output"><code>$$\color{red}{int_arg: 3}</code>
-<code>$$\color{red}{str_arg: Example 3}</code></pre>
+<pre class="r-output"><code>$$\color{red}{int_arg: 3}$$</code>
+<code>$$\color{red}{str_arg: Example 3}$$</code></pre>
 
 <p>In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:</p>
-<pre class="r-output"><code>$$\color{red}{example_function --int_arg &quot;4&quot; --invalid_arg &quot;Example 4&quot;}</code></pre>
+<pre class="r-output"><code>$$\color{red}{example_function --int_arg &quot;4&quot; --invalid_arg &quot;Example 4&quot;}$$</code></pre>
 
-<pre class="r-output"><code>$$\color{red}{<span style="color: #BB0000; font-weight: bold;">[2024/04/04 -- 11:04:01] Error in `examples/example_function.sh:14`</span>}</code>
-<code>$$\color{red}{<span style="color: #BB0000; font-weight: bold;">[2024/04/04 -- 11:04:01]   Invalid argument to `example_function`: &#39;invalid_arg&#39;</span>}</code></pre>
+<pre class="r-output"><code>$$\color{red}{<span style="color: #BB0000; font-weight: bold;">[2024/04/04 -- 11:04:46] Error in `examples/example_function.sh:14`</span>}$$</code>
+<code>$$\color{red}{<span style="color: #BB0000; font-weight: bold;">[2024/04/04 -- 11:04:46]   Invalid argument to `example_function`: &#39;invalid_arg&#39;</span>}$$</code></pre>
 
 </body>
 </html>

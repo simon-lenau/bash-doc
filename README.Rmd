@@ -16,7 +16,7 @@ knitr::knit_hooks$set(output = function(x, options){
       "<code>",
       "$$\\color{red}{",
       fansi::to_html(x = htmltools::htmlEscape((unlist(strsplit(x,"\n")))), warn = FALSE,carry=FALSE),
-      "}",
+      "}$$",
       "</code>",
       collapse="\n") ,
     '</pre>'
