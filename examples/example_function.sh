@@ -11,12 +11,7 @@ function example_function {
 
     need_help $@ && return $?
 
-    # toparse="$(parse_arguments "$@")"
-    # echo "toparse:"
-    # printf ">>>\n${toparse[0]}\n<<<\n"
-    eval "$(parse_arguments "$@" || return 1) || return 1"
-
-    # echo "---------"
+    eval "$(parse_arguments "$@")"
 
     echo "int_arg: ${int_arg[@]}"
     echo "str_arg: ${str_arg[@]}"

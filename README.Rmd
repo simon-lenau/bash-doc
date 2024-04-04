@@ -1,7 +1,7 @@
 ---
 title: bash-doc
 output:
-  html_document
+  github_document
 ---
 
 
@@ -77,14 +77,14 @@ The following function is a basic example of how to use `bash-doc`:
 
 
 
-```{bash example_function, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
+```{bash example_function, engine.opts="-l",echo=FALSE,comment=NA,class="html"}
 cat "examples/example_function.sh"
 source "examples/example_function.sh"
 ```
 
 ### Printing help
 
-```{bash example_help_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
+```{bash example_help_show, engine.opts="-l",echo=FALSE,comment=NA,class="html"}
 cat "examples/example_help.sh"
 ```
 
@@ -98,44 +98,43 @@ source "examples/example_help.sh"
 
 Defaults are used if an argument is not specified:
 
-```{bash example_int_only_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
+```{bash example_int_only_show, engine.opts="-l",echo=FALSE,comment=NA,class="bash"}
 cat "examples/example_int_only.sh"
 ```
 
-```{bash example_int_only,echo=FALSE,comment=NA}
+```{bash example_int_only,echo=FALSE,comment=NA,class="html"}
 source "examples/example_function.sh"
 source "examples/example_int_only.sh"
 ```
 
-```{bash example_str_only_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
+```{bash example_str_only_show, engine.opts="-l",echo=FALSE,comment=NA,class="bash"}
 cat "examples/example_str_only.sh"
 ```
 
-```{bash example_str_only,echo=FALSE,comment=NA}
+```{bash example_str_only,echo=FALSE,comment=NA,class="html"}
 source "examples/example_function.sh"
 source "examples/example_str_only.sh"
 ```
 
 but setting an argument overwrites the defaults:
 
-```{bash example_int_and_str_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
+```{bash example_int_and_str_show, engine.opts="-l",echo=FALSE,comment=NA,class="bash"}
 cat "examples/example_int_and_str.sh"
 ```
 
-```{bash example_int_and_str,echo=FALSE,comment=NA}
+```{bash example_int_and_str,echo=FALSE,comment=NA,class="html"}
 source "examples/example_function.sh"
 source "examples/example_int_and_str.sh"
 ```
 
 In any case, it is checked that only valid arguments are passed. An error is thrown otherwise:
 
-```{bash example_invalid_argument_show, engine.opts="-l",echo=FALSE,comment=NA,class.output="bash"}
+```{bash example_invalid_argument_show, engine.opts="-l",echo=FALSE,comment=NA,class="bash"}
 cat "examples/example_invalid_argument.sh"
 ```
 
-```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE}
-source "examples/example_function.sh"
-export TERM="linux"
+```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE,class="html"}
+source "examples/example_function.sh";export TERM="linux";
 source "examples/example_invalid_argument.sh"
 ```
 

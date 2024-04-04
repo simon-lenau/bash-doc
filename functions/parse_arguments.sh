@@ -87,27 +87,17 @@ function parse_arguments {
     fi
 
     # Check if all arguments are valid
-    check=${#arg_array[@]}
-    echo "echo \"Check is $check\""
-
     for argname in ${!arg_array[@]}; do
-        if [[ " ${args[@]} " =~ " ${argname} " ]]; then
-            ((check--))
-        else
-            echo "err \"Invalid argument to \`${FUNCNAME[@]:0:1}\`: \'${argname}\'\""
-            echo "return 1"
+        if [[ ! " ${args[@]} " =~ " ${argname} " ]]; then
+            echo "err \"Invalid argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${argname}'\";return 1"
             ((check++))
-            exit 1
+            return 1
         fi
     done
 
-    echo "echo \"Check is $check\""
-
-    if [ "$check" -eq "0" ]; then
-        for argname in ${!arg_array[@]}; do
-            make_declaration "${argname}" "${arg_array[${argname}]}"
-        done
-    fi
+    for argname in ${!arg_array[@]}; do
+        make_declaration "${argname}" "${arg_array[${argname}]}"
+    done
 
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #

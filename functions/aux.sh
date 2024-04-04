@@ -10,7 +10,7 @@ function err {
     fi
 
     printf "%b" \
-        "$(printf "\n${fmt}[$(date +'%Y/%m/%d -- %H:%M:%S')] %s" \
+        "$(printf "${fmt}[$(date +'%Y/%m/%d -- %H:%M:%S')] %s" \
             "Error in \`$(caller | awk '{print $2":"$1}')\`")" \
         "$(printf "\n${fmt}[$(date +'%Y/%m/%d -- %H:%M:%S')]\t%b" "$@")" \
         "${reset_fmt}\n" \
