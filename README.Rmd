@@ -141,17 +141,13 @@ In any case, it is checked that only valid arguments are passed. An error is thr
 cat "examples/example_invalid_argument.sh"
 ```
 
-```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE,class.output="html",include=!file.exists("examples/example_invalid_argument.png")}
-source "examples/example_function.sh"
-source "examples/example_invalid_argument.sh"
-```
-
 ```{bash example_invalid_argument_bash,echo=FALSE,comment=NA,error=TRUE,class.output="html",include=!file.exists("examples/example_invalid_argument.png")}
 source "examples/example_function.sh"
 source "examples/example_invalid_argument.sh"
 ```
 
-```{r example_invalid_argument_r,echo=FALSE,include=file.exists("examples/example_invalid_argument.png")}
+
+```{r example_invalid_argument_r,echo=FALSE,include=file.exists("examples/example_invalid_argument.png"),eval=file.exists("examples/example_invalid_argument.png")}
 knitr::include_graphics("examples/example_invalid_argument.png")
 ```
 
