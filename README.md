@@ -69,20 +69,20 @@ source $(dirname "${BASH_SOURCE[0]}")/../init
 ### Printing help
 
 <pre class="r-output">example_function --help</pre>
-<pre class="r-output"><span style='font-weight: bold;'>example_function</span>   
-   <span style='color: #BB00BB; font-weight: bold;'>This is an</span>
-   <span style='color: #BB00BB; font-weight: bold;'>Example function</span>
-&#10;   <span style='font-weight: bold; text-decoration: underline;'>Arguments:</span>      
-      <span style='color: #BB0000; font-weight: bold;'>--int_arg  </span><span style='color: #00BBBB;'>&lt;int&gt; </span>
-         This is some int argument
-         Default: <span style='color: #00BB00;'>default_int</span>
-      <span style='color: #BB0000; font-weight: bold;'>--str_arg  </span><span style='color: #00BBBB;'>&lt;str&gt; </span>
-         This is some string argument
-         Default: <span style='color: #00BB00;'>default_str</span>
-&#10;   <span style='font-weight: bold; text-decoration: underline;'>Usage:</span>      
-      <span style='font-weight: bold;'>example_function</span> \
-         <span style='color: #BB0000; font-weight: bold;'>--int_arg  </span>"<span style='color: #00BB00;'>default_int</span>" \
-         <span style='color: #BB0000; font-weight: bold;'>--str_arg  </span>"<span style='color: #00BB00;'>default_str</span>"</pre>
+<pre class="r-output">[1mexample_function[m   
+   [1m[35mThis is an[m
+   [1m[35mExample function[m
+&#10;   [1m[4mArguments:[m      
+      [1m[31m--int_arg  [m[36m&lt;int&gt; [m
+         [327mThis is some int argument[m
+         Default: [32mdefault_int[m
+      [1m[31m--str_arg  [m[36m&lt;str&gt; [m
+         [327mThis is some string argument[m
+         Default: [32mdefault_str[m
+&#10;   [1m[4mUsage:[m      
+      [1mexample_function[m \
+         [1m[31m--int_arg  [m"[32mdefault_int[m" \
+         [1m[31m--str_arg  [m"[32mdefault_str[m"</pre>
 
 ### Specifying arguments
 
@@ -105,5 +105,5 @@ In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:
 
 <pre class="r-output">example_function --int_arg "4" --invalid_arg "Example 4"</pre>
-<pre class="r-output"><span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 10:56:56] Error in `examples/example_function.sh:14`</span>
-<span style='color: #BB0000; font-weight: bold;'>[2024/04/04 -- 10:56:56]   Invalid argument to `example_function`: 'invalid_arg'</span></pre>
+<pre class="r-output">[31m[1m[2024/04/04 -- 11:02:04] Error in `examples/example_function.sh:14`
+[31m[1m[2024/04/04 -- 11:02:04]   Invalid argument to `example_function`: 'invalid_arg'[m</pre>
