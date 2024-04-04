@@ -672,89 +672,61 @@ available, tput is used for colouring.</p>
 <h2 id="examples">Examples</h2>
 <p>The following function is a basic example of how to use
 <code>bash-doc</code>:</p>
-<p><span class="math inline">\(\color{red}{\text{#!bash}}\)</span> <span class="math inline">\(\color{red}{\text{source $(dirname
-&quot;${BASH_SOURCE[0]}&quot;)/../init}}\)</span> <span class="math inline">\(\color{red}{\text{}}\)</span>
-$\color{red}{\text{function example_function {}}$ <span class="math inline">\(\color{red}{\text{    init_doc}}\)</span>
-$\color{red}{\text{ init_desc }}$ <span class="math inline">\(\color{red}{\text{        &quot;This is an&quot;
-\}}$
-$\color{red}{\text{        &quot;Example function&quot;}}$
-$\color{red}{\text{    init_arg &quot;int&quot; &quot;int_arg&quot;
-&quot;This is some int argument&quot; &quot;default_int&quot;}}$
-$\color{red}{\text{    init_arg &quot;str&quot; &quot;str_arg&quot;
-&quot;This is some string argument&quot; &quot;default_str&quot;}}$
-$\color{red}{\text{}}$
-$\color{red}{\text{    need_help $@ &amp;amp;&amp;amp; return $?}}$
-$\color{red}{\text{}}$
-$\color{red}{\text{    eval &quot;$(parse_arguments
-&quot;$@&quot;)&quot;}}$
-$\color{red}{\text{}}$
-$\color{red}{\text{    echo &quot;int_arg: ${int_arg[@]}&quot;}}$
-$\color{red}{\text{    echo &quot;str_arg: ${str_arg[@]}&quot;}}$
-$\color{red}{\text{}}$ $\color{red}{\text{}}}\)</span></p>
+<p><code>#!bash</code> <code>source <span class="math inline">\((dirname
+&quot;\)</span>{BASH_SOURCE[0]}“)/../init</code> <code></code>
+<code>function example_function {</code> <code> init_doc</code> <code>
+init_desc &lt;/code&gt; <code>”This is an” &lt;/code&gt; <code> “Example
+function”</code> <code> init_arg “int” “int_arg” “This is some int
+argument” “default_int”</code> <code> init_arg “str” “str_arg” “This is
+some string argument” “default_str”</code> <code></code> <code>
+need_help $@ &amp;&amp; return <span class="math inline">\(?&lt;/code&gt;
+&lt;code&gt;&lt;/code&gt;
+&lt;code&gt;    eval &quot;\)</span>(parse_arguments “$@”)“</code>
+<code></code> <code> echo”int_arg: ${int_arg[@]}“</code> <code>
+echo”str_arg: ${str_arg[@]}“</code> <code></code> <code>}</code></p>
 <h3 id="printing-help">Printing help</h3>
-<p><span class="math inline">\(\color{red}{\text{example_function
---help}}\)</span></p>
-<p><span class="math inline">\(\color{red}{\text{&lt;span
-style=&#39;font-weight:
-bold;&#39;&gt;example_function&lt;/span&gt;   }}\)</span> <span class="math inline">\(\color{red}{\text{   &lt;span style=&#39;color:
-#BB00BB; font-weight: bold;&#39;&gt;This is an&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{red}{\text{   &lt;span
-style=&#39;color: #BB00BB; font-weight: bold;&#39;&gt;Example
-function&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{red}{\text{}}\)</span> <span class="math inline">\(\color{red}{\text{   &lt;span
-style=&#39;font-weight: bold; text-decoration:
-underline;&#39;&gt;Arguments:&lt;/span&gt;      }}\)</span> <span class="math inline">\(\color{red}{\text{      &lt;span style=&#39;color:
-#BB0000; font-weight: bold;&#39;&gt;--int_arg  &lt;/span&gt;&lt;span
-style=&#39;color: #00BBBB;&#39;&gt;&amp;lt;int&amp;gt;
-&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{red}{\text{         This is some int
-argument}}\)</span> <span class="math inline">\(\color{red}{\text{         Default: &lt;span
-style=&#39;color: #00BB00;&#39;&gt;default_int&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{red}{\text{      &lt;span
-style=&#39;color: #BB0000; font-weight:
-bold;&#39;&gt;--str_arg  &lt;/span&gt;&lt;span style=&#39;color:
-#00BBBB;&#39;&gt;&amp;lt;str&amp;gt; &lt;/span&gt;}}\)</span> <span class="math inline">\(\color{red}{\text{         This is some string
-argument}}\)</span> <span class="math inline">\(\color{red}{\text{         Default: &lt;span
-style=&#39;color: #00BB00;&#39;&gt;default_str&lt;/span&gt;}}\)</span>
-<span class="math inline">\(\color{red}{\text{}}\)</span> <span class="math inline">\(\color{red}{\text{   &lt;span
-style=&#39;font-weight: bold; text-decoration:
-underline;&#39;&gt;Usage:&lt;/span&gt;      }}\)</span>
-$\color{red}{\text{
-<span style="font-weight: bold;">example_function</span> }}$
-$\color{red}{\text{
-<span style="color: #BB0000; font-weight: bold;">--int_arg
-</span>&quot;<span style="color: #00BB00;">default_int</span>&quot; }}$ <span class="math inline">\(\color{red}{\text{         &lt;span
-style=&#39;color: #BB0000; font-weight:
-bold;&#39;&gt;--str_arg  &lt;/span&gt;&quot;&lt;span style=&#39;color:
-#00BB00;&#39;&gt;default_str&lt;/span&gt;&quot;}}\)</span></p>
+<p><code>example_function –help</code></p>
+<p><code><span style="font-weight: bold;">example_function</span>
+</code> <code> <span style="color: #BB00BB; font-weight: bold;">This is
+an</span></code> <code>
+<span style="color: #BB00BB; font-weight: bold;">Example
+function</span></code> <code></code> <code>
+<span style="font-weight: bold; text-decoration: underline;">Arguments:</span>
+</code> <code> <span style="color: #BB0000; font-weight: bold;">–int_arg
+</span><span style="color: #00BBBB;">&lt;int&gt; </span></code> <code>
+This is some int argument</code> <code> Default:
+<span style="color: #00BB00;">default_int</span></code> <code>
+<span style="color: #BB0000; font-weight: bold;">–str_arg
+</span><span style="color: #00BBBB;">&lt;str&gt; </span></code> <code>
+This is some string argument</code> <code> Default:
+<span style="color: #00BB00;">default_str</span></code> <code></code>
+<code>
+<span style="font-weight: bold; text-decoration: underline;">Usage:</span>
+</code> <code> <span style="font-weight: bold;">example_function</span>
+&lt;/code&gt; <code>
+<span style="color: #BB0000; font-weight: bold;">–int_arg
+</span>“<span style="color: #00BB00;">default_int</span>” &lt;/code&gt;
+<code> <span style="color: #BB0000; font-weight: bold;">–str_arg
+</span>“<span style="color: #00BB00;">default_str</span>”</code></p>
 <h3 id="specifying-arguments">Specifying arguments</h3>
 <p>Defaults are used if an argument is not specified:</p>
-<p><span class="math inline">\(\color{red}{\text{example_function
---str_arg &quot;Example 1&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{red}{\text{int_arg:
-default_int}}\)</span> <span class="math inline">\(\color{red}{\text{str_arg: Example
-1}}\)</span></p>
-<p><span class="math inline">\(\color{red}{\text{example_function
---int_arg &quot;2&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{red}{\text{int_arg: 2}}\)</span>
-<span class="math inline">\(\color{red}{\text{str_arg:
-default_str}}\)</span></p>
+<p><code>example_function –str_arg “Example 1”</code></p>
+<p><code>int_arg: default_int</code> <code>str_arg: Example 1</code></p>
+<p><code>example_function –int_arg “2”</code></p>
+<p><code>int_arg: 2</code> <code>str_arg: default_str</code></p>
 <p>but setting an argument overwrites the defaults:</p>
-<p><span class="math inline">\(\color{red}{\text{example_function
---int_arg &quot;3&quot; --str_arg &quot;Example 3&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{red}{\text{int_arg: 3}}\)</span>
-<span class="math inline">\(\color{red}{\text{str_arg: Example
-3}}\)</span></p>
+<p><code>example_function –int_arg “3” –str_arg “Example 3”</code></p>
+<p><code>int_arg: 3</code> <code>str_arg: Example 3</code></p>
 <p>In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:</p>
-<p><span class="math inline">\(\color{red}{\text{example_function
---int_arg &quot;4&quot; --invalid_arg &quot;Example
-4&quot;}}\)</span></p>
-<p><span class="math inline">\(\color{red}{\text{&lt;span
-style=&#39;color: #BB0000; font-weight: bold;&#39;&gt;[2024/04/04 --
-11:09:14] Error in
-`examples/example_function.sh:14`&lt;/span&gt;}}\)</span> <span class="math inline">\(\color{red}{\text{&lt;span style=&#39;color:
-#BB0000; font-weight: bold;&#39;&gt;[2024/04/04 -- 11:09:14]    Invalid
-argument to `example_function`:
-&#39;invalid_arg&#39;&lt;/span&gt;}}\)</span></p>
+<p><code>example_function –int_arg “4” –invalid_arg “Example
+4”</code></p>
+<p><code><span style="color: #BB0000; font-weight: bold;">[2024/04/04 –
+11:10:01] Error in
+<code>examples/example_function.sh:14</code></span></code>
+<code><span style="color: #BB0000; font-weight: bold;">[2024/04/04 –
+11:10:01] Invalid argument to <code>example_function</code>:
+‘invalid_arg’</span></code></p>
 
 </body>
 </html>
