@@ -4,7 +4,7 @@ output:
   github_document
 ---
 
-$\color{red}{This is some text}
+$\color{red}{This is some text}$
 
 ```{r, echo=FALSE,include=FALSE}
 # Make sure colors from tput are used correctly in the output
