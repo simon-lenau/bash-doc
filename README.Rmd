@@ -11,13 +11,15 @@ $\color{#BB00BB}{This is some text}$
 options(crayon.enabled = TRUE)
 knitr::knit_hooks$set(output = function(x, options){
   paste0(
-    '<pre class="r-output">',
+    # '<pre class="r-output">',
     paste0(
-      "<code>",
+      # "<code>",
+      "$\\color{#BB00BB}{\\text{",
       fansi::to_html(x = htmltools::htmlEscape((unlist(strsplit(x,"\n")))), warn = FALSE,carry=FALSE),
-      "</code>",
-      collapse="\n"),
-    '</pre>'
+      "}}$",
+      # "</code>",
+      collapse="\n")
+    # '</pre>'
   )
 })
 num_colors <- function(forget=TRUE) 256
