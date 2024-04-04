@@ -76,58 +76,22 @@ The following function is a basic example of how to use `bash-doc`:
 ### Printing help
 
 <pre class="r-output"><code>example_function --help</code></pre>
-<pre class="r-output"><code>tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>example_function   </code>
-<code>   tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>This is an</code>
-<code>   tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>Example function</code>
+<pre class="r-output"><code>example_function   </code>
+<code>   This is an</code>
+<code>   Example function</code>
 <code></code>
-<code>   tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>Arguments:      </code>
-<code>      tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>--int_arg  tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>&lt;int&gt; </code>
-<code>         tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>This is some int argument</code>
-<code>         Default: tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>default_int</code>
-<code>      tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>--str_arg  tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>&lt;str&gt; </code>
-<code>         tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>This is some string argument</code>
-<code>         Default: tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>default_str</code>
+<code>   Arguments:      </code>
+<code>      --int_arg  &lt;int&gt; </code>
+<code>         This is some int argument</code>
+<code>         Default: default_int</code>
+<code>      --str_arg  &lt;str&gt; </code>
+<code>         This is some string argument</code>
+<code>         Default: default_str</code>
 <code></code>
-<code>   tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>Usage:      </code>
-<code>      tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>example_function \</code>
-<code>         tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>--int_arg  tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>"default_int" \</code>
-<code>         tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>--str_arg  tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>"default_str"</code></pre>
+<code>   Usage:      </code>
+<code>      example_function \</code>
+<code>         --int_arg  "default_int" \</code>
+<code>         --str_arg  "default_str"</code></pre>
 
 ### Specifying arguments
 
@@ -150,7 +114,5 @@ In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:
 
 <pre class="r-output"><code>example_function --int_arg "4" --invalid_arg "Example 4"</code></pre>
-<pre class="r-output"><code>tput: No value for $TERM and no -T specified</code>
-<code>tput: No value for $TERM and no -T specified</code>
-<code>[2024/04/04 -- 12:19:07] Error in `examples/example_function.sh:14`</code>
-<code>[2024/04/04 -- 12:19:07]  Invalid argument to `example_function`: 'invalid_arg'</code></pre>
+<pre class="r-output"><code>[2024/04/04 -- 12:20:02] Error in `examples/example_function.sh:14`</code>
+<code>[2024/04/04 -- 12:20:02]  Invalid argument to `example_function`: 'invalid_arg'</code></pre>
