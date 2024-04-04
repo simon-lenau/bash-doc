@@ -98,7 +98,7 @@ source "examples/example_function.sh"
 source "examples/example_help.sh"
 ```
 
-```{r example_help_r,echo=FALSE,include=file.exists("examples/example_help.png")}
+```{r example_help_r,echo=FALSE, out.width="35%",include=file.exists("examples/example_help.png")}
 knitr::include_graphics("examples/example_help.png")
 ```
 
@@ -147,7 +147,7 @@ source "examples/example_invalid_argument.sh"
 ```
 
 
-```{r example_invalid_argument_r,echo=FALSE,include=file.exists("examples/example_invalid_argument.png"),eval=file.exists("examples/example_invalid_argument.png")}
+```{r example_invalid_argument_r, out.width="90%",echo=FALSE,include=file.exists("examples/example_invalid_argument.png"),eval=file.exists("examples/example_invalid_argument.png")}
 knitr::include_graphics("examples/example_invalid_argument.png")
 ```
 

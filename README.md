@@ -75,7 +75,7 @@ The following function is a basic example of how to use `bash-doc`:
 
 <pre class="r-output"><code>example_function --help</code></pre>
 
-<img src="examples/example_help.png" width="550" />
+<img src="examples/example_help.png" width="35%" />
 
 ### Specifying arguments
 
@@ -99,4 +99,4 @@ error is thrown otherwise:
 
 <pre class="r-output"><code>example_function --int_arg "4" --invalid_arg "Example 4"</code></pre>
 
-<img src="examples/example_invalid_argument.png" width="1198" />
+<img src="examples/example_invalid_argument.png" width="90%" />
