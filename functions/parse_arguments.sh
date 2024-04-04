@@ -57,7 +57,7 @@ function parse_arguments {
         --*=* | -*=*) # for arguments like --a=5
             ((i++))
             if [ "$i" -gt "1" ]; then
-                arg_array["$argname"]="$argval"
+                arg_array["$argname"]="${argval[@]}"
             fi
             argname="${1%%=*}"
             argname="${argname#--}"
@@ -67,7 +67,7 @@ function parse_arguments {
         --* | -*) # for arguments like --a 5
             ((i++))
             if [ "$i" -gt "1" ]; then
-                arg_array["$argname"]="$argval"
+                arg_array["$argname"]="${argval[@]}"
             fi
             argname="${1}"
             argname="${argname#--}"
@@ -83,7 +83,7 @@ function parse_arguments {
     done
 
     if [ ! -z "$argname" ]; then
-        arg_array["$argname"]="$argval"
+        arg_array["$argname"]="${argval[@]}"
     fi
 
     # Check if all arguments are valid
