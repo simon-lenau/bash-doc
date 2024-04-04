@@ -11,15 +11,15 @@ output:
 options(crayon.enabled = TRUE)
 knitr::knit_hooks$set(output = function(x, options){
   paste0(
-    '<pre class="r-output">',
+    # '<pre class="r-output">',
     paste0(
       # "<code>",
-      "$$\\color{red}{",
+      "$\\color{red}{",
       fansi::to_html(x = htmltools::htmlEscape((unlist(strsplit(x,"\n")))), warn = FALSE,carry=FALSE),
-      "}$$",
+      "}$",
       # "</code>",
-      collapse="\n") ,
-    '</pre>'
+      collapse="\n")
+    # '</pre>'
   )
 })
 num_colors <- function(forget=TRUE) 256
