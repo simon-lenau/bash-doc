@@ -74,22 +74,8 @@ The following function is a basic example of how to use `bash-doc`:
 ### Printing help
 
 <pre class="r-output"><code>example_function --help</code></pre>
-<pre class="r-output"><code>example_function   </code>
-<code>   This is an</code>
-<code>   Example function</code>
-<code></code>
-<code>   Arguments:      </code>
-<code>      --int_arg  &lt;int&gt; </code>
-<code>         This is some int argument</code>
-<code>         Default: default_int</code>
-<code>      --str_arg  &lt;str&gt; </code>
-<code>         This is some string argument</code>
-<code>         Default: default_str</code>
-<code></code>
-<code>   Usage:      </code>
-<code>      example_function \</code>
-<code>         --int_arg  "default_int" \</code>
-<code>         --str_arg  "default_str"</code></pre>
+
+<img src="examples/example_help.png" width="1842" />
 
 ### Specifying arguments
 
@@ -112,5 +98,5 @@ In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:
 
 <pre class="r-output"><code>example_function --int_arg "4" --invalid_arg "Example 4"</code></pre>
-<pre class="r-output"><code>[2024/04/04 -- 12:27:14] Error in `examples/example_function.sh:14`</code>
-<code>[2024/04/04 -- 12:27:14]  Invalid argument to `example_function`: 'invalid_arg'</code></pre>
+
+<img src="examples/example_invalid_argument.png" width="1838" />
