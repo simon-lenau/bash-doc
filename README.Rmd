@@ -4,8 +4,6 @@ output:
   github_document
 ---
 
-$\color{#BB00BB}{This is some text}$
-
 ```{r, echo=FALSE,include=FALSE}
 # Make sure colors from tput are used correctly in the output
 options(crayon.enabled = TRUE)
