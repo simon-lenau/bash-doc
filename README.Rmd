@@ -1,7 +1,7 @@
 ---
 title: bash-doc
 output:
-  html_document
+  github_document
 ---
 
 
@@ -77,18 +77,18 @@ The following function is a basic example of how to use `bash-doc`:
 
 
 
-```{bash example_function, engine.opts="-l",echo=FALSE,comment=NA,class="html"}
+```{bash example_function, engine.opts="-l",echo=FALSE,comment=NA}
 cat "examples/example_function.sh"
 source "examples/example_function.sh"
 ```
 
 ### Printing help
 
-```{bash example_help_show, engine.opts="-l",echo=FALSE,comment=NA,class="html"}
+```{bash example_help_show, engine.opts="-l",echo=FALSE,comment=NA}
 cat "examples/example_help.sh"
 ```
 
-```{bash example_help,echo=FALSE,comment=NA,class="html"}
+```{bash example_help,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
 export TERM="linux"
 source "examples/example_help.sh"
@@ -102,7 +102,7 @@ Defaults are used if an argument is not specified:
 cat "examples/example_int_only.sh"
 ```
 
-```{bash example_int_only,echo=FALSE,comment=NA,class="html"}
+```{bash example_int_only,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
 source "examples/example_int_only.sh"
 ```
@@ -111,7 +111,7 @@ source "examples/example_int_only.sh"
 cat "examples/example_str_only.sh"
 ```
 
-```{bash example_str_only,echo=FALSE,comment=NA,class="html"}
+```{bash example_str_only,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
 source "examples/example_str_only.sh"
 ```
@@ -122,7 +122,7 @@ but setting an argument overwrites the defaults:
 cat "examples/example_int_and_str.sh"
 ```
 
-```{bash example_int_and_str,echo=FALSE,comment=NA,class="html"}
+```{bash example_int_and_str,echo=FALSE,comment=NA}
 source "examples/example_function.sh"
 source "examples/example_int_and_str.sh"
 ```
@@ -133,7 +133,7 @@ In any case, it is checked that only valid arguments are passed. An error is thr
 cat "examples/example_invalid_argument.sh"
 ```
 
-```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE,class="html",class.output="html"}
+```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE,class.output="html"}
 source "examples/example_function.sh";export TERM="linux";
 source "examples/example_invalid_argument.sh"
 ```
