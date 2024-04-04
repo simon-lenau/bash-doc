@@ -16,8 +16,8 @@ knitr::knit_hooks$set(output = function(x, options){
       "<code>",
       fansi::to_html(x = htmltools::htmlEscape((unlist(strsplit(x,"\n")))), warn = FALSE,carry=FALSE),
       "</code>",
-      collapse=""),
-    '</pre>'
+      collapse="\n")
+    # '</pre>'
   )
 })
 num_colors <- function(forget=TRUE) 256
