@@ -1,7 +1,7 @@
 ---
 title: bash-doc
 output:
-  github_document
+  html_document
 ---
 
 
@@ -133,7 +133,7 @@ In any case, it is checked that only valid arguments are passed. An error is thr
 cat "examples/example_invalid_argument.sh"
 ```
 
-```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE,class="html"}
+```{bash example_invalid_argument,echo=FALSE,comment=NA,error=TRUE,class="html",class.output="html"}
 source "examples/example_function.sh";export TERM="linux";
 source "examples/example_invalid_argument.sh"
 ```
