@@ -77,6 +77,9 @@ function parse_arguments {
             ;;
         *)
             argval+=("$1")
+            if [ -z "${argname}" ]; then
+                echo "err \"Invalid unnamed argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${1}'\";return 1"
+            fi
             ;;
         esac
         shift
