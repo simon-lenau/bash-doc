@@ -78,7 +78,8 @@ function parse_arguments {
         *)
             argval+=("$1")
             if [ -z "${argname}" ]; then
-                echo "err \"Invalid unnamed argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${1}'\";return 1"
+                echo "err \"Invalid unnamed argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${1}'\" \
+                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";return 1"
             fi
             ;;
         esac
@@ -92,7 +93,9 @@ function parse_arguments {
     # Check if all arguments are valid
     for argname in ${!arg_array[@]}; do
         if [[ ! " ${args[@]} " =~ " ${argname} " ]]; then
-            echo "err \"Invalid argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${argname}'\";return 1"
+            echo "err \"Invalid argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${argname}'\" \
+                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";return 1"
+
             ((check++))
             return 1
         fi
