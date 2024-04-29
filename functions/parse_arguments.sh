@@ -57,7 +57,7 @@ function parse_arguments {
         --*=* | -*=*) # for arguments like --a=5
             ((i++))
             if [ "$i" -gt "1" ]; then
-                arg_array["$argname"]="$argval"
+                arg_array["$argname"]="${argval[@]}"
             fi
             argname="${1%%=*}"
             argname="${argname#--}"
@@ -67,7 +67,7 @@ function parse_arguments {
         --* | -*) # for arguments like --a 5
             ((i++))
             if [ "$i" -gt "1" ]; then
-                arg_array["$argname"]="$argval"
+                arg_array["$argname"]="${argval[@]}"
             fi
             argname="${1}"
             argname="${argname#--}"
@@ -77,19 +77,25 @@ function parse_arguments {
             ;;
         *)
             argval+=("$1")
+            if [ -z "${argname}" ]; then
+                echo "err \"Invalid unnamed argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${1}'\" \
+                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";return 1"
+            fi
             ;;
         esac
         shift
     done
 
     if [ ! -z "$argname" ]; then
-        arg_array["$argname"]="$argval"
+        arg_array["$argname"]="${argval[@]}"
     fi
 
     # Check if all arguments are valid
     for argname in ${!arg_array[@]}; do
         if [[ ! " ${args[@]} " =~ " ${argname} " ]]; then
-            echo "err \"Invalid argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${argname}'\";return 1"
+            echo "err \"Invalid argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${argname}'\" \
+                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";return 1"
+
             ((check++))
             return 1
         fi
