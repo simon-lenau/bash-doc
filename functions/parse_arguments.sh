@@ -1,4 +1,4 @@
-#!bash
+#!/usr/bin/env bash
 
 # =========================== > make_declaration < =========================== #
 function make_declaration {

@@ -1,4 +1,4 @@
-#!bash
+#!/usr/bin/env bash
 source $(dirname "${BASH_SOURCE[0]}")/../init
 
 function example_function {

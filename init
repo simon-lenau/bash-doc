@@ -1,4 +1,4 @@
-#!bash
+#!/usr/bin/env bash
 
 if [ -n "${__bash_doc_included__}" ]; then return; fi
 export __bash_doc_included__=true
@@ -12,6 +12,7 @@ fi
 if [[ ! -z "${__bash_doc_included__}" ]]; then
     export __bash_doc_included__=true
 fi
+
 export source_path="$(dirname "${BASH_SOURCE[0]}")/functions"
 
 source $source_path/init_functions.sh
