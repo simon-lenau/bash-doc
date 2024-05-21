@@ -7,18 +7,14 @@ if [ -z "${BASH_DOC_DIR}" ]; then
     BASH_DOC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi
 
-echo "BASH_DOC_DIR: $BASH_DOC_DIR"
-
 
 # ===================== > Source and export functions < ====================== #
-cd ${BASH_DOC_DIR}/functions
-source ./init_functions.sh
-source ./format_functions.sh
-source ./aux.sh
-source ./need_help.sh
-source ./parse_arguments.sh
-source ./show_functions.sh
-cd ${BASH_DOC_DIR}/
+source ${BASH_DOC_DIR}/functions/init_functions.sh
+source ${BASH_DOC_DIR}/functions/format_functions.sh
+source ${BASH_DOC_DIR}/functions/aux.sh
+source ${BASH_DOC_DIR}/functions/need_help.sh
+source ${BASH_DOC_DIR}/functions/parse_arguments.sh
+source ${BASH_DOC_DIR}/functions/show_functions.sh
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 # ========================= > Export all functions < ========================= #
 eval "$(declare -F | sed -e 's/-f /-fx /')"
