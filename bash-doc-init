@@ -7,6 +7,9 @@ if [ -z "${BASH_DOC_DIR}" ]; then
     export BASH_DOC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi
 
+echo "BASH_DOC_DIR: $BASH_DOC_DIR"
+
+
 # ===================== > Source and export functions < ====================== #
 cd ${BASH_DOC_DIR}/functions
 source ./init_functions.sh
