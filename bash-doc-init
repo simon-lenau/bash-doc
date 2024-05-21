@@ -8,17 +8,14 @@ if [ -z "${BASH_DOC_DIR}" ]; then
 fi
 
 # ===================== > Source and export functions < ====================== #
-
-if [[ ! -z "${__bash_doc_included__}" ]]; then
-    export __bash_doc_included__=true
-fi
-
-source ${BASH_DOC_DIR}/functions/init_functions.sh
-source ${BASH_DOC_DIR}/functions/format_functions.sh
-source ${BASH_DOC_DIR}/functions/aux.sh
-source ${BASH_DOC_DIR}/functions/need_help.sh
-source ${BASH_DOC_DIR}/functions/parse_arguments.sh
-source ${BASH_DOC_DIR}/functions/show_functions.sh
+cd ${BASH_DOC_DIR}/functions
+source ./init_functions.sh
+source ./format_functions.sh
+source ./aux.sh
+source ./need_help.sh
+source ./parse_arguments.sh
+source ./show_functions.sh
+cd ${BASH_DOC_DIR}/
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 # ========================= > Export all functions < ========================= #
 eval "$(declare -F | sed -e 's/-f /-fx /')"
