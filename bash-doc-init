@@ -4,7 +4,7 @@ if [ -n "${__bash_doc_included__}" ]; then return 0; fi
 export __bash_doc_included__=true
 
 if [ -z "${BASH_DOC_DIR}" ]; then
-    export BASH_DOC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    BASH_DOC_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi
 
 echo "BASH_DOC_DIR: $BASH_DOC_DIR"
