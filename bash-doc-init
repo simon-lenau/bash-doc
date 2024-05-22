@@ -22,7 +22,6 @@ fi
 
 echo "BASH_DOC_DIR: ${BASH_DOC_DIR}"
 
-
 # ===================== > Source and export functions < ====================== #
 source ${BASH_DOC_DIR}/functions/err
 source ${BASH_DOC_DIR}/functions/format_functions
@@ -39,5 +38,14 @@ source ${BASH_DOC_DIR}/functions/show_help
 
 # ========================= > Export all functions < ========================= #
 eval "$(declare -F |
-    perl -p0e "s/declare\s+-f\s+(.*)\s*$/export -f \${1}/gmi")"
+    perl -p0e "s    /declare\s+-f\s+(.*)\s*$/export -f \/gmi")"
 # ────────────────────────────────── <end> ─────────────────────────────────── #
+
+export __bash_doc_output_redirected__="false"
+(command -v "tput" >/dev/null 2>&1) &&
+    {
+       export __bash_doc_has_tput__="true"
+    } || {
+    export __bash_doc_has_tput__="false"
+}
+
