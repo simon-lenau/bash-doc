@@ -52,7 +52,7 @@ colouring.
 The following function is a basic example of how to use `bash-doc`:
 
 <pre class="r-output"><code>#!/usr/bin/env bash</code>
-<code>source $(dirname "${BASH_SOURCE[0]}")/../init</code>
+<code>source $(dirname "${BASH_SOURCE[0]}")/../bash-doc-init</code>
 <code></code>
 <code>function example_function {</code>
 <code>    init_doc</code>
@@ -70,7 +70,7 @@ The following function is a basic example of how to use `bash-doc`:
 <code>    echo "str_arg: ${str_arg[@]}"</code>
 <code></code>
 <code>}</code>
-<code>examples/example_function.sh: line 2: examples/../init: No such file or directory</code></pre>
+<code>BASH_DOC_DIR: /Users/simonlenau/Projects_Personal/bash-doc</code></pre>
 
 ### Printing help
 
@@ -83,38 +83,20 @@ The following function is a basic example of how to use `bash-doc`:
 Defaults are used if an argument is not specified:
 
 <pre class="r-output"><code>example_function --str_arg "Example 1"</code></pre>
-<pre class="r-output"><code>examples/example_function.sh: line 2: examples/../init: No such file or directory</code>
-<code>examples/example_function.sh: line 5: init_doc: command not found</code>
-<code>examples/example_function.sh: line 7: init_desc: command not found</code>
-<code>examples/example_function.sh: line 9: init_arg: command not found</code>
-<code>examples/example_function.sh: line 10: init_arg: command not found</code>
-<code>examples/example_function.sh: line 12: need_help: command not found</code>
-<code>examples/example_function.sh: line 14: parse_arguments: command not found</code>
-<code>int_arg: </code>
-<code>str_arg: </code></pre>
+<pre class="r-output"><code>BASH_DOC_DIR: /Users/simonlenau/Projects_Personal/bash-doc</code>
+<code>int_arg: default_int</code>
+<code>str_arg: Example 1</code></pre>
 <pre class="r-output"><code>example_function --int_arg "2"</code></pre>
-<pre class="r-output"><code>examples/example_function.sh: line 2: examples/../init: No such file or directory</code>
-<code>examples/example_function.sh: line 5: init_doc: command not found</code>
-<code>examples/example_function.sh: line 7: init_desc: command not found</code>
-<code>examples/example_function.sh: line 9: init_arg: command not found</code>
-<code>examples/example_function.sh: line 10: init_arg: command not found</code>
-<code>examples/example_function.sh: line 12: need_help: command not found</code>
-<code>examples/example_function.sh: line 14: parse_arguments: command not found</code>
-<code>int_arg: </code>
-<code>str_arg: </code></pre>
+<pre class="r-output"><code>BASH_DOC_DIR: /Users/simonlenau/Projects_Personal/bash-doc</code>
+<code>int_arg: 2</code>
+<code>str_arg: default_str</code></pre>
 
 but setting an argument overwrites the defaults:
 
 <pre class="r-output"><code>example_function --int_arg "3" --str_arg "Example 3"</code></pre>
-<pre class="r-output"><code>examples/example_function.sh: line 2: examples/../init: No such file or directory</code>
-<code>examples/example_function.sh: line 5: init_doc: command not found</code>
-<code>examples/example_function.sh: line 7: init_desc: command not found</code>
-<code>examples/example_function.sh: line 9: init_arg: command not found</code>
-<code>examples/example_function.sh: line 10: init_arg: command not found</code>
-<code>examples/example_function.sh: line 12: need_help: command not found</code>
-<code>examples/example_function.sh: line 14: parse_arguments: command not found</code>
-<code>int_arg: </code>
-<code>str_arg: </code></pre>
+<pre class="r-output"><code>BASH_DOC_DIR: /Users/simonlenau/Projects_Personal/bash-doc</code>
+<code>int_arg: 3</code>
+<code>str_arg: Example 3</code></pre>
 
 In any case, it is checked that only valid arguments are passed. An
 error is thrown otherwise:
