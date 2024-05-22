@@ -20,8 +20,6 @@ if [ -z "${BASH_DOC_DIR}" ]; then
     BASH_DOC_DIR="$(dirname $(readlink -f "${current_file}"))"
 fi
 
-echo "BASH_DOC_DIR: ${BASH_DOC_DIR}"
-
 # ===================== > Source and export functions < ====================== #
 source ${BASH_DOC_DIR}/functions/err
 source ${BASH_DOC_DIR}/functions/format_functions
