@@ -48,4 +48,3 @@ export __bash_doc_output_redirected__="false"
     } || {
     export __bash_doc_has_tput__="false"
 }
-

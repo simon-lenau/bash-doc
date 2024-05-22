@@ -23,10 +23,10 @@ function show_help {
                 format_func_desc "${funcdesc[$i]}"
         done
     fi
-    newline 2 && indent 0
+    newline 1 && indent 0
     # Function arguments
     if [ "${#args[@]}" -gt "0" ]; then
-        indent +
+        newline 1 && indent +
         format_help --type="header" "Arguments:"
         indent +
         __bash_doc_arg_indent__=${__bash_doc_indent__}
@@ -45,18 +45,19 @@ function show_help {
             printf -- "Default: "
             format_arg_default "${argdefault[$i]}"
         done
+        newline 1
     fi
-    newline 2 && indent 0
+    newline 1 && indent 0
     # Function usage
     indent +
     format_help --type="header" "Usage:"
     indent +
     __bash_doc_usage_indent__=${__bash_doc_indent__}
 
+    # Newline & indent
+    newline 1 && indent ${__bash_doc_usage_indent__}
+    format_func_name "${func_name}"
     if [ "${#args[@]}" -gt "0" ]; then
-        # Newline & indent
-        newline 1 && indent ${__bash_doc_usage_indent__}
-        format_func_name "${func_name}"
         for ((i = 0; i < ${#args[@]}; i++)); do
             if [[ "${TERM}" == "rmd" ]]; then
 
