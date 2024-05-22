@@ -15,7 +15,7 @@ if [ -z "${BASH_DOC_DIR}" ]; then
     if [ -n "$BASH_VERSION" ]; then
         current_file="${BASH_SOURCE[-1]}"
     elif [ -n "$ZSH_VERSION" ]; then
-        current_file="${(%):-%N}"
+        current_file="${(%):-%x}"
     fi
     BASH_DOC_DIR="$(dirname $(readlink -f "${current_file}"))"
 fi
