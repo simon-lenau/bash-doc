@@ -35,7 +35,8 @@ source ${BASH_DOC_DIR}/functions/parse_arguments
 source ${BASH_DOC_DIR}/functions/rep
 source ${BASH_DOC_DIR}/functions/show_help
 # ────────────────────────────────── <end> ─────────────────────────────────── #
-# # ========================= > Export all functions < ========================= #
+
+# ========================= > Export all functions < ========================= #
 eval "$(declare -F |
     perl -p0e "s/declare\s+-f\s+(.*)\s*$/export -f \${1}/gmi")"
-# # ────────────────────────────────── <end> ─────────────────────────────────── #
+# ────────────────────────────────── <end> ─────────────────────────────────── #
