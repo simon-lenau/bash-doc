@@ -1,32 +1,40 @@
 #!/usr/bin/env bash
 
-if [ -n "${__bash_doc_included__}" ]; then return 0; fi
-export __bash_doc_included__=true
+pkg_name="bash_doc"
 
-if [ -z "${BASH_DOC_DIR}" ]; then
+pkg_includeguard="__${pkg_name}_included__"
+pkg_dir="__${pkg_name}_dir__"
+
+if [ -n "${!pkg_includeguard}" ]; then return 0; fi
+export ${pkg_includeguard}=true
+
+if [ -z "${!pkg_dir}" ]; then
+    current_file=
     if [ -n "$BASH_VERSION" ]; then
-        current_file="${BASH_SOURCE[0]}"
+        current_file="${BASH_SOURCE[-1]}"
     elif [ -n "$ZSH_VERSION" ]; then
         current_file="${(%):-%N}"
     fi
-    BASH_DOC_DIR="$(dirname $(readlink -f "${current_file}"))"
+    declare ${pkg_dir}="$(dirname $(readlink -f "${current_file}"))"
 fi
 
-echo "BASH_DOC_DIR: $BASH_DOC_DIR"
+echo "BASH_DOC_DIR: ${!pkg_dir}"
 
 # ===================== > Source and export functions < ====================== #
-source ${BASH_DOC_DIR}/functions/err
-source ${BASH_DOC_DIR}/functions/format_functions
-source ${BASH_DOC_DIR}/functions/format_help
-source ${BASH_DOC_DIR}/functions/indent
-source ${BASH_DOC_DIR}/functions/init_functions
-source ${BASH_DOC_DIR}/functions/max
-source ${BASH_DOC_DIR}/functions/need_help
-source ${BASH_DOC_DIR}/functions/newline
-source ${BASH_DOC_DIR}/functions/parse_arguments
-source ${BASH_DOC_DIR}/functions/rep
-source ${BASH_DOC_DIR}/functions/show_help
+source ${!pkg_dir}/functions/err
+source ${!pkg_dir}/functions/format_functions
+source ${!pkg_dir}/functions/format_help
+source ${!pkg_dir}/functions/indent
+source ${!pkg_dir}/functions/init_functions
+source ${!pkg_dir}/functions/max
+source ${!pkg_dir}/functions/need_help
+source ${!pkg_dir}/functions/newline
+source ${!pkg_dir}/functions/parse_arguments
+source ${!pkg_dir}/functions/rep
+source ${!pkg_dir}/functions/show_help
 # ────────────────────────────────── <end> ─────────────────────────────────── #
-# ========================= > Export all functions < ========================= #
-eval "$(declare -F | sed -e 's/-f /-fx /')"
-# ────────────────────────────────── <end> ─────────────────────────────────── #
+# # ========================= > Export all functions < ========================= #
+# eval "$(declare -F |
+#     perl -p0e "s/declare\s+-f\s+(.*)\s*$/export -f \${1}/gmi")"
+# # ────────────────────────────────── <end> ─────────────────────────────────── #
+
