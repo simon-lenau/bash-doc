@@ -2,7 +2,7 @@
 function err {
     fmt=""
     reset_fmt=""
-    if [[ "${__bash_aux_output_redirected__}" == "false" ]] &&
+    if [[ "${__bash_doc_output_redirected__}" == "false" ]] &&
         [[ "${__bash_aux_has_tput__}" == "true" ]]; then
         fmt="$(tput setaf 1 && tput bold)"
         reset_fmt="$(tput sgr0)"
