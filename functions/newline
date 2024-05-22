@@ -1,0 +1,7 @@
+function newline {
+    if [[ ! "${TERM}" == "rmd" ]]; then
+        printf "%b" "$(rep "\\\n" $1)"
+    else
+        printf "%s" "$(rep " <br>" $1)"
+    fi
+}

@@ -1,0 +1,12 @@
+
+
+function max {
+    max=0
+    for x in ${@}; do
+        if [[ $x -gt $max ]]; then
+            max=$x
+        fi
+    done
+    echo $max
+}
+

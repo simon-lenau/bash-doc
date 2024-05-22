@@ -1,11 +1,3 @@
-__bash_doc_output_redirected__="false"
-(command -v "tput" >/dev/null 2>&1) &&
-    {
-        __bash_doc_has_tput__="true"
-    } || {
-    __bash_doc_has_tput__="false"
-}
-
 # =============================== > fmt_help < =============================== #
 
 function fmt_help {
