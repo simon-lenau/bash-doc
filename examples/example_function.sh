@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-source $(dirname "${BASH_SOURCE[0]}")/../init
+source $(dirname "${BASH_SOURCE[0]}")/../bash-doc-init
 
 function example_function {
     init_doc
