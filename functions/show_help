@@ -27,7 +27,7 @@ function show_help {
     # Function arguments
     if [ "${#args[@]}" -gt "0" ]; then
         indent +
-        fmt_help --type="header" "Arguments:"
+        format_help --type="header" "Arguments:"
         indent +
         __bash_doc_arg_indent__=${__bash_doc_indent__}
         for ((i = 0; i < ${#args[@]}; i++)); do
@@ -49,7 +49,7 @@ function show_help {
     newline 2 && indent 0
     # Function usage
     indent +
-    fmt_help --type="header" "Usage:"
+    format_help --type="header" "Usage:"
     indent +
     __bash_doc_usage_indent__=${__bash_doc_indent__}
 

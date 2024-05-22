@@ -1,0 +1,52 @@
+function format_help {
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+        --type=* | -type=*) # for arguments like --a=5
+            type="${1#*=}"
+            ;;
+        --type | -type) # for arguments like --a 5
+            ((i++))
+            type="${2}"
+            shift
+            ;;
+        *)
+            break
+            ;;
+        esac
+        shift
+    done
+
+    fmt=""
+    reset_fmt=""
+    formatter=""
+
+    if [[ "${__bash_doc_output_redirected__}" == "false" ]] &&
+        [[ "${__bash_doc_has_tput__}" == "true" ]]; then
+
+        reset_fmt="$(tput sgr0)"
+
+        if [[ "$type" == "arg" ]]; then
+            fmt="$(tput bold && tput setaf 1)"
+        elif [[ "$type" == "arg_desc" ]]; then
+            fmt="$(tput setaf 27)"
+        elif [[ "$type" == "arg_default" ]]; then
+            fmt="$(tput setaf 2)"
+        elif [[ "$type" == "func_desc" ]]; then
+            fmt="$(tput bold && tput setaf 5)"
+        elif [[ "$type" == "func_name" ]]; then
+            fmt="$(tput bold)"
+        elif [[ "$type" == "header" ]]; then
+            fmt="$(tput bold && tput smul)"
+        elif [[ "$type" == "type" ]]; then
+            fmt="$(tput setaf 6)"
+        elif [[ "$type" == "val" ]]; then
+            fmt="$(tput bold)"
+        fi
+
+    fi
+
+    printf "%b" "$fmt$(
+        printf -- "${@: -1}" |
+            perl -p0e "s/\n\s*/\n$(indent)/gmi" 
+    )$reset_fmt"
+}

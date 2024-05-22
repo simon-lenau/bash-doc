@@ -17,6 +17,7 @@ echo "BASH_DOC_DIR: $BASH_DOC_DIR"
 # ===================== > Source and export functions < ====================== #
 source ${BASH_DOC_DIR}/functions/err
 source ${BASH_DOC_DIR}/functions/format_functions
+source ${BASH_DOC_DIR}/functions/format_help
 source ${BASH_DOC_DIR}/functions/indent
 source ${BASH_DOC_DIR}/functions/init_functions
 source ${BASH_DOC_DIR}/functions/max
@@ -24,10 +25,8 @@ source ${BASH_DOC_DIR}/functions/need_help
 source ${BASH_DOC_DIR}/functions/newline
 source ${BASH_DOC_DIR}/functions/parse_arguments
 source ${BASH_DOC_DIR}/functions/rep
-source ${BASH_DOC_DIR}/functions/show_functions
+source ${BASH_DOC_DIR}/functions/show_help
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 # ========================= > Export all functions < ========================= #
 eval "$(declare -F | sed -e 's/-f /-fx /')"
 # ────────────────────────────────── <end> ─────────────────────────────────── #
-
-
