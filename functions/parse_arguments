@@ -18,29 +18,6 @@ function make_declaration {
 
 # =========================== > parse_arguments < ============================ #
 
-# ┌┌────────────────────────────────────────────────────────────────────────┐┐ #
-# ││ `parse_arguments()`                                                    ││ #
-# ││                                                                        ││ #
-# ││ Parse arguments to assign them inside a function                       ││ #
-# ││                                                                        ││ #
-# ││ Input:                                                                 ││ #
-# ││ $1 : valid_args (array): Array of valid arguments                      ││ #
-# ││ $2... : arguments: Arguments of form                                   ││ #
-# ││ -key=value / --key=value / -key value / --key value                    ││ #
-# ││                                                                        ││ #
-# ││ Output:                                                                ││ #
-# ││ Assignment statements of form key="value"                              ││ #
-# ││ Usage:                                                                 ││ #
-# ││ parse_arguments <valid_args> <arg2> ... <argn>                         ││ #
-# ││                                                                        ││ #
-# ││ Examples:                                                              ││ #
-# ││ valid_args=("key1" "key2")                                             ││ #
-# ││ function test {                                                        ││ #
-# ││ eval "$(parse_arguments valid_args[@] -key1 val1 --key2=val2)"         ││ #
-# ││ echo "key1: $key1"                                                     ││ #
-# ││ echo "key2: $key2"                                                     ││ #
-# ││ }                                                                      ││ #
-# └└────────────────────────────────────────────────────────────────────────┘┘ #
 
 function parse_arguments {
     declare -A arg_array
