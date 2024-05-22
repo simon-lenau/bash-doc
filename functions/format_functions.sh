@@ -57,12 +57,10 @@ function fmt_help {
 
     printf "%b" "$fmt$(
         printf -- "${@: -1}" |
-            perl -p0e "s/\n\s*/\n$(indent)/gmi" 
-            # sed \
-            #     -e 's/\n/\nx'"$(indent)"'y/g'
+            perl -p0e "s/\n\s*/\n$(indent)  /gmi"
     )$reset_fmt"
 }
-# $(indent)
+
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
 # =========================== > format_argument < ============================ #
