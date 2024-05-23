@@ -20,6 +20,11 @@ if [ -z "${BASH_DOC_DIR}" ]; then
     BASH_DOC_DIR="$(dirname $(readlink -f "${current_file}"))"
 fi
 
+# =================== > Save currently defined functions < =================== #
+# To exclude them from exporting
+functions_not_export="$(declare -F)"
+# ────────────────────────────────── <end> ─────────────────────────────────── #
+
 # ===================== > Source and export functions < ====================== #
 source ${BASH_DOC_DIR}/functions/err
 source ${BASH_DOC_DIR}/functions/format_functions
@@ -34,15 +39,25 @@ source ${BASH_DOC_DIR}/functions/rep
 source ${BASH_DOC_DIR}/functions/show_help
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
-# ========================= > Export all functions < ========================= #
-eval "$(declare -F |
-    perl -p0e "s/declare\s+-f\s+(.*)\s*$/export -f \${1}/gmi" )"
+# ================== > Export all newly defined functions < ================== #
+readarray -t functions <<<"$(declare -F)"
+
+functions_export="$(
+    for function in "${functions[@]}"; do
+        if [[ ! $functions_not_export =~ $function ]];then
+            echo "$function" | 
+            perl -p0e "s/declare\s+-f\s+(.*)\s*$/export -f \${1}\n/gi" 
+        fi
+    done
+)"
+
+eval "${functions_export}"
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
 export __bash_doc_output_redirected__="false"
 (command -v "tput" >/dev/null 2>&1) &&
     {
-       export __bash_doc_has_tput__="true"
+        export __bash_doc_has_tput__="true"
     } || {
     export __bash_doc_has_tput__="false"
 }
