@@ -36,14 +36,14 @@ Simple functions for creating and formating documentation of bash scripts / func
 
 Initialize the documentation block
 
-**Arguments:**
+##### Arguments
 none
 
 #### `init_desc`
 
 Set the description of the function / script
 
-**Arguments:**
+##### Arguments
 
 - `$1,...,$n`: Lines of the description
 
@@ -51,11 +51,12 @@ Set the description of the function / script
 
 Initialize named arguments to be set via `--arg=val` or `--arg val` (using one or two dashes)
 
-**Arguments:**
-- `$1`: Argument type  
-- `$2`: Argument name
-- `$3`: Argument description
-- `$4`: Default value
+##### Arguments
+
+- **`$1`**: Argument type  
+- **`$2`**: Argument name
+- **`$3`**: Argument description
+- **`$4`**: Default value
 
 ### Set arguments
 
@@ -63,8 +64,8 @@ Initialize named arguments to be set via `--arg=val` or `--arg val` (using one o
 Set arguments passed as `--arg=val` or `--arg val` (using one or two dashes).
 Should be used as `eval "$(parse_arguments "$@")"`
 
-**Arguments:**
-- `$1,...,$n`: Arguments to be set.
+##### Arguments
+- **`$1,...,$n`**: Arguments to be set.
 
     
 ### Print help
@@ -73,14 +74,13 @@ Should be used as `eval "$(parse_arguments "$@")"`
 
 Show the help if argument `-h` or `-help` (using one or two dashes) is present. If output is console and tput is available, tput is used for colouring.
 
-**Arguments:**
+##### Arguments
+
 none
 
 ## Examples
 
 The following function is a basic example of how to use `bash-doc`:
-
-
 
 ```{bash example_function, engine.opts="-l",echo=FALSE,comment=NA}
 cat "examples/example_function.sh"
