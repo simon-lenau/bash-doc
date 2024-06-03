@@ -50,7 +50,7 @@ Should be used as `eval "$(parse_arguments "$@")"`
 
 #### `need_help`
 
-Show the help if argument `-h` or `-help` (using one or two dashes) is present. If output is console and tput is available, tput is used for colouring.
+Show the help if argument `-h` or `-help` (using one or two dashes) is present. If output is console and tput is available, tput is used for colouring (see examples).
 
 ##### Arguments
 
@@ -58,7 +58,9 @@ none
 
 ## Examples
 
-The following function is a basic example of how to use `bash-doc`:
+The following basic examples how to use `bash-doc` are located in the `examples/` folder:
+
+### Function definition
 
 <pre class="r-output"><code>#!/usr/bin/env bash</code>
 <code>source $(dirname "${BASH_SOURCE[0]}")/../bash-doc-init</code>
