@@ -6,6 +6,7 @@ output:
 
 
 
+
 Simple functions for creating and formating documentation of bash scripts / functions.
 
 ### Create documentation
