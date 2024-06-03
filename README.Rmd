@@ -26,8 +26,6 @@ assignInNamespace("num_colors", num_colors, pos="package:crayon")
 Sys.setenv("TERM"="linux")
 ```
 
-
-
 Simple functions for creating and formating documentation of bash scripts / functions
 
 ### Create documentation
@@ -146,10 +144,7 @@ source "examples/example_function.sh"
 source "examples/example_invalid_argument.sh"
 ```
 
-
 ```{r example_invalid_argument_r, out.width="90%",echo=FALSE,include=file.exists("examples/example_invalid_argument.png"),eval=file.exists("examples/example_invalid_argument.png")}
 knitr::include_graphics("examples/example_invalid_argument.png")
 ```
-
-
 

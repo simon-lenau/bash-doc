@@ -6,8 +6,6 @@ output:
 
 
 
-
-
 Simple functions for creating and formating documentation of bash scripts / functions
 
 ### Create documentation
@@ -120,11 +118,8 @@ In any case, it is checked that only valid arguments are passed. An error is thr
 
 
 
-
 <div class="figure">
 <img src="examples/example_invalid_argument.png" alt="plot of chunk example_invalid_argument_r" width="90%" />
 <p class="caption">plot of chunk example_invalid_argument_r</p>
 </div>
-
-
 
