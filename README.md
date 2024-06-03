@@ -43,6 +43,7 @@ Set arguments passed as `--arg=val` or `--arg val` (using one or two dashes).
 Should be used as `eval "$(parse_arguments "$@")"`
 
 ##### Arguments
+
 - **`$1,...,$n`**: Arguments to be set.
 
     
