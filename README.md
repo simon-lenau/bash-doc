@@ -85,10 +85,7 @@ The following basic examples how to use `bash-doc` are located in the `examples/
 
 
 
-<div class="figure">
-<img src="examples/example_help.png" alt="plot of chunk example_help_r" width="35%" />
-<p class="caption">plot of chunk example_help_r</p>
-</div>
+<img src="examples/example_help.png" width="35%" />
 
 ### Specifying arguments
 
@@ -117,8 +114,5 @@ In any case, it is checked that only valid arguments are passed. An error is thr
 
 
 
-<div class="figure">
-<img src="examples/example_invalid_argument.png" alt="plot of chunk example_invalid_argument_r" width="90%" />
-<p class="caption">plot of chunk example_invalid_argument_r</p>
-</div>
+<img src="examples/example_invalid_argument.png" width="90%" />
 
