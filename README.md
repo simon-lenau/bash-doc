@@ -1,8 +1,5 @@
----
-title: bash-doc
-output:
-  github_document
----
+# bash-doc
+
 
 
 
