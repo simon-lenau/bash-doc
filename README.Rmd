@@ -27,7 +27,7 @@ assignInNamespace("num_colors", num_colors, pos="package:crayon")
 Sys.setenv("TERM"="linux")
 ```
 
-Simple functions for creating and formating documentation of bash scripts / functions
+Simple functions for creating and formating documentation of bash scripts / functions.
 
 ### Create documentation
 
@@ -79,6 +79,22 @@ Show the help if argument `-h` or `-help` (using one or two dashes) is present. 
 none
 
 ## Examples
+
+```{r, echo=FALSE,include=FALSE}
+knitr::knit_hooks$set(output = function(x, options) {
+  c(
+    '```bash',
+    paste0(
+      paste0(
+        x,
+        collapse = " \n"
+      ),
+      collapse = "\n"
+    ),
+    "```"
+  )
+})
+  ```
 
 The following basic examples how to use `bash-doc` are located in the `examples/` folder:
 
