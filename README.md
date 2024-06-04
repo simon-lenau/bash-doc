@@ -1,4 +1,15 @@
+<<<<<<< Updated upstream
 # bash-doc
+=======
+---
+noteId: "c9b39a70183c11efabd49500fed5af69"
+tags: []
+
+---
+
+bash-doc
+================
+>>>>>>> Stashed changes
 
 
 
