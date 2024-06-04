@@ -16,14 +16,14 @@ function err {
                 "${err_indent}${@}" \
                 "Calling chain:" \
                 "$(source_chain 2)" |
-                perl -p0e "s/([\n])/\${1}${err_indent}/gmi"
+                perl -p0e "s/([\n])+/\${1}${err_indent}/gmi"
         )"
     fi
     printf "%b" \
         "$(printf "${fmt}${date_prefix}%s" \
             "Error in $(caller | awk '{print "\`"$2"\` [line "$1"]"}')")" \
         "$(printf "\n${fmt}%b" "${arguments[@]}")" \
-        "${reset_fmt}\n" \
+        "${reset_fmt}" \
         >&2
     echo ""
 }
