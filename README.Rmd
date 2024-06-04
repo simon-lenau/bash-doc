@@ -168,4 +168,3 @@ source "examples/example_invalid_argument.sh"
 ```{r example_invalid_argument_r, out.width="90%",echo=FALSE,include=file.exists("examples/example_invalid_argument.png"),eval=file.exists("examples/example_invalid_argument.png")}
 knitr::include_graphics("examples/example_invalid_argument.png")
 ```
-

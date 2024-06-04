@@ -1,15 +1,4 @@
-<<<<<<< Updated upstream
 # bash-doc
-=======
----
-noteId: "c9b39a70183c11efabd49500fed5af69"
-tags: []
-
----
-
-bash-doc
-================
->>>>>>> Stashed changes
 
 
 
@@ -75,6 +64,7 @@ The following basic examples how to use `bash-doc` are located in the `examples/
 
 ```bash
 #!/usr/bin/env bash
+
 source $(dirname "${BASH_SOURCE[0]}")/../bash-doc-init
 
 function example_function {
@@ -156,4 +146,3 @@ example_function --int_arg "4" --invalid_arg "Example 4"
 
 
 <img src="examples/example_invalid_argument.png" width="90%" />
-
