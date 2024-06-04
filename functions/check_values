@@ -1,0 +1,23 @@
+function check_arguments {
+    values=(${!1})
+    valid_values=(
+        "${@:2:${#@}}"
+    )
+
+    if [ "${#values[@]}" -gt "0" ]; then
+        correct_values=($(echo ${values[@]} ${valid_values[@]} | tr ' ' '\n' | sort | uniq -d))
+        incorrect_values=($(echo ${values[@]} ${correct_values[@]} | tr ' ' '\n' | sort | uniq -u))
+    fi
+
+    if [ "${#incorrect_values[@]}" -gt "0" ]; then
+        err \
+            "Argument \`${1}\` in \`$(
+                caller |
+                    awk '{print $2}' |
+                    perl -p0e "s/.*?([^\/]+)$/\${1}/gi"
+            )\` contains invalid values:" \
+            "     $(printf "\"%s\" " ${incorrect_values[@]})" \
+            "valid elements are:" \
+            "     $(printf "\"%s\" " ${valid_values[@]})"
+    fi
+}

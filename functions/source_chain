@@ -1,0 +1,15 @@
+function source_chain {
+    rm_elem="${1}"
+    if [ -z "${rm_elem}" ]; then
+        rm_elem=1
+    fi
+    source_chain=
+    separator=
+    for ((i = ${#BASH_SOURCE[@]}; i >= ${rm_elem}; --i)); do
+        if [ -n "${BASH_SOURCE[$i]}" ]; then
+            source_chain="${source_chain}${separator}$(printf -- "${BASH_SOURCE[$i]}" | perl -p0e "s/.*?([^\/]+)$/\${1}/gi")"
+            separator="\n -> "
+        fi
+    done
+    printf -- "${source_chain[@]}"
+}
