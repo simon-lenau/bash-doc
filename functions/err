@@ -14,7 +14,7 @@ function err {
         arguments="$(
             printf "%s\n" \
                 "${err_indent}${@}" \
-                "Calling chain:" \
+                "BASH_SOURCE chain:" \
                 "$(source_chain 2)" |
                 perl -p0e "s/([\n])+/\${1}${err_indent}/gmi"
         )"
