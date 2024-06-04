@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 source $(dirname "${BASH_SOURCE[0]}")/../bash-doc-init
 
 function example_function {
@@ -17,3 +18,4 @@ function example_function {
     echo "str_arg: ${str_arg[@]}"
 
 }
+
