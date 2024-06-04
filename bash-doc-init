@@ -21,7 +21,7 @@ if [ -z "${BASH_DOC_DIR}" ]; then
 fi
 
 # ===================== > Source and export functions < ====================== #
-source ${BASH_DOC_DIR}/functions/check_values
+source ${BASH_DOC_DIR}/functions/check_arguments
 source ${BASH_DOC_DIR}/functions/err
 source ${BASH_DOC_DIR}/functions/format_functions
 source ${BASH_DOC_DIR}/functions/format_help
