@@ -1,5 +1,6 @@
 function check_arguments {
-    values=(${!1})
+    arrname="${1}[@]"
+    values=(${!arrname})
     valid_values=(
         "${@:2:${#@}}"
     )
