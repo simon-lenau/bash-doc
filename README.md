@@ -58,7 +58,7 @@ none
 
 
 
-The following basic examples how to use `bash-doc` are located in the `examples/` folder:
+The following basic examples how to use `bash-doc` are located in the `[examples/](examples/)` folder:
 
 ### Function definition
 
