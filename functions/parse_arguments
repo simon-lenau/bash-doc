@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+isDefaultFun="__isDefault__"
+
 # =========================== > make_declaration < =========================== #
 function make_declaration {
     varname="${1}"
@@ -38,7 +40,7 @@ function parse_arguments {
     if [ "${#args[@]}" -gt "0" ]; then
         for ((i = 0; i < ${#args[@]}; i++)); do
             arg_array["${args[$i]}"]="${argdefault[$i]}"
-            isDefault_array["${args[$i]}"]=1
+            isDefault_array["${args[$i]}"]=0
         done
     fi
     i=0
@@ -78,7 +80,7 @@ function parse_arguments {
 
     if [ ! -z "$argname" ]; then
         arg_array["${argname}"]="${argval[@]}"
-        isDefault_array["${argname}"]=0
+        isDefault_array["${argname}"]=1
     fi
 
     # Check if all arguments are valid
@@ -97,8 +99,8 @@ function parse_arguments {
     done
 
     printf "%s\n" \
-        "unset isDefault" \
-        "function isDefault() {"
+        "unset ${isDefaultFun}" \
+        "function ${isDefaultFun} () {"
 
     for argname in ${!arg_array[@]}; do
         make_isDefault "${argname}" "${isDefault_array[${argname}]}"
@@ -106,7 +108,7 @@ function parse_arguments {
 
     printf "%s\n" \
         "}" \
-        "export isDefault"
+        "export ${isDefaultFun}"
 
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #
