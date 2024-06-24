@@ -16,16 +16,29 @@ function make_declaration {
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #
 
-# =========================== > parse_arguments < ============================ #
+# =========================== > make_isDefault < =========================== #
+function make_isDefault {
+    varname="${1}"
+    if [ -z ${varname} ]; then
+        return 0
+    fi
+    shift
+    printf "%b\n" \
+        "\tif [[ \"\${1}\" == \"${varname}\" ]]; then return ${1}; fi"
+}
+# ────────────────────────────────── <end> ─────────────────────────────────── #
 
+# =========================== > parse_arguments < ============================ #
 
 function parse_arguments {
     declare -A arg_array
+    declare -A isDefault_array
     argname=""
     argval=""
     if [ "${#args[@]}" -gt "0" ]; then
         for ((i = 0; i < ${#args[@]}; i++)); do
             arg_array["${args[$i]}"]="${argdefault[$i]}"
+            isDefault_array["${args[$i]}"]=1
         done
     fi
     i=0
@@ -64,7 +77,8 @@ function parse_arguments {
     done
 
     if [ ! -z "$argname" ]; then
-        arg_array["$argname"]="${argval[@]}"
+        arg_array["${argname}"]="${argval[@]}"
+        isDefault_array["${argname}"]=0
     fi
 
     # Check if all arguments are valid
@@ -81,6 +95,18 @@ function parse_arguments {
     for argname in ${!arg_array[@]}; do
         make_declaration "${argname}" "${arg_array[${argname}]}"
     done
+
+    printf "%s\n" \
+        "unset isDefault" \
+        "function isDefault() {"
+
+    for argname in ${!arg_array[@]}; do
+        make_isDefault "${argname}" "${isDefault_array[${argname}]}"
+    done
+
+    printf "%s\n" \
+        "}" \
+        "export isDefault"
 
 }
 # ────────────────────────────────── <end> ─────────────────────────────────── #
