@@ -1,5 +1,8 @@
 function show_help {
     local func_name="${FUNCNAME[@]:2:1}"
+    if [[ "${func_name}" == "main" ]]; then
+        local func_name="$(basename ${BASH_SOURCE[@]:2:1})"
+    fi
     local len_args=8
     local len_types=0
     for ((i = 0; i < ${#args[@]}; i++)); do
