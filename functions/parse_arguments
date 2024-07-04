@@ -50,6 +50,7 @@ function parse_arguments {
             ((i++))
             if [ "$i" -gt "1" ]; then
                 arg_array["$argname"]="${argval[@]}"
+                isDefault_array["${argname}"]=1
             fi
             argname="${1%%=*}"
             argname="${argname#--}"
@@ -60,6 +61,7 @@ function parse_arguments {
             ((i++))
             if [ "$i" -gt "1" ]; then
                 arg_array["$argname"]="${argval[@]}"
+                isDefault_array["${argname}"]=1
             fi
             argname="${1}"
             argname="${argname#--}"
