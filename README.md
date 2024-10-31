@@ -1,3 +1,9 @@
+---
+noteId: "70ee7bf023f211ef98d87baff5c8d064"
+tags: []
+
+---
+
 # bash-doc
 
 

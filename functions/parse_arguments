@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 isDefaultFun="__isDefault__"
+PARENT_NAME=
+PARENT_IS_FUNCTION=true
 
 # =========================== > make_declaration < =========================== #
 function make_declaration {
@@ -11,7 +13,12 @@ function make_declaration {
     shift
     varval=("$@")
     echo \
-        "local " \
+        $(
+            case "${PARENT_IS_FUNCTION}" in
+            "true") echo "local " ;;
+            *) echo "" ;;
+            esac
+        ) \
         "${varname}=(" \
         $(printf "'%s' " ${varval[@]}) \
         ")"
@@ -43,6 +50,15 @@ function parse_arguments {
             isDefault_array["${args[$i]}"]=0
         done
     fi
+
+    # Flag for checking if parent is a function or a file
+    PARENT_NAME="${FUNCNAME[@]:1:1}"
+    PARENT_IS_FUNCTION=true
+    if [[ "${PARENT_NAME}" == "main" || "${PARENT_NAME}" == "source" ]]; then
+        PARENT_IS_FUNCTION=false
+        PARENT_NAME="${BASH_SOURCE[@]:1:1}"
+    fi
+
     i=0
     while [[ $# -gt "0" ]]; do
         case "$1" in
@@ -72,8 +88,13 @@ function parse_arguments {
         *)
             argval+=("$1")
             if [ -z "${argname}" ]; then
-                echo "err \"Invalid unnamed argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${1}'\" \
-                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";return 1"
+                echo "err \"Invalid unnamed argument to \\\`${PARENT_NAME}\\\`: '${1}'\" \
+                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";$(
+                    case "${PARENT_IS_FUNCTION}" in
+                    "true") echo "return 1" ;;
+                    *) echo "exit 1" ;;
+                    esac
+                )"
             fi
             ;;
         esac
@@ -88,8 +109,13 @@ function parse_arguments {
     # Check if all arguments are valid
     for argname in ${!arg_array[@]}; do
         if [[ ! " ${args[@]} " =~ " ${argname} " ]]; then
-            echo "err \"Invalid argument to \\\`${FUNCNAME[@]:1:1}\\\`: '${argname}'\" \
-                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";return 1"
+            echo "err \"Invalid argument to \\\`${PARENT_NAME}\\\`: '${argname}'\" \
+                    \"Valid arguments names are: $(printf "\'%s\' " "${args[@]}")\";$(
+                case "${PARENT_IS_FUNCTION}" in
+                "true") echo "return 1" ;;
+                *) echo "exit 1" ;;
+                esac
+            )"
 
             ((check++))
             return 1
